@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/NestJS-framework-E0234E?logo=nestjs&logoColor=white" alt="NestJS" />
   <img src="https://img.shields.io/badge/PostgreSQL-database-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/License-Apache%202.0-blue" alt="Apache 2.0 License" />
-  <img src="https://img.shields.io/badge/Tests-2418%20passing-brightgreen" alt="2418 Tests Passing" />  <img src="https://img.shields.io/badge/AI%20Agents-12%20built--in-blueviolet" alt="12 AI Agents" />
+  <img src="https://img.shields.io/badge/Tests-2418%20passing-brightgreen" alt="2418 Tests Passing" />  <img src="https://img.shields.io/badge/AI%20Agents-12%20built--in-blueviolet" alt="12 BAIA Agents" />
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 <p align="center">
   <a href="#what-is-haip">What is BAIA</a> &middot;
   <a href="#architecture">Architecture</a> &middot;
-  <a href="#ai-agents">AI Agents</a> &middot;
+  <a href="#ai-agents">BAIA Agents</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#tech-stack">Tech Stack</a> &middot;
   <a href="#quick-start">Quick Start</a> &middot;
@@ -156,7 +156,7 @@ graph TB
 
 ---
 
-## AI Agents
+## BAIA Agents
 
 BAIA includes **12 built-in AI agents** — 5 for revenue management (including the Revenue Manager orchestrator), 5 for operations intelligence, and 2 for guest engagement. Every agent follows the `HaipAgent` interface:
 
@@ -270,7 +270,7 @@ Recent backlog deliveries, mapped to the feature sections below. Each slice is a
 | 13 | **WhatsApp messaging** | [#205](https://github.com/telivityai/haip/pull/205) | Outbound WhatsApp templates via Twilio (console fallback in demo); marketing uses existing GDPR marketing consent. See **Guest Engagement Agents**. |
 | 14 | **Folio inbound posting** | [#205](https://github.com/telivityai/haip/pull/205) | Property-scoped inbound charges (e.g. phone / minibar) to in-house folios with vendor transaction idempotency. See **Folio & Billing**. |
 | 15 | **Booking deep links** | [#205](https://github.com/telivityai/haip/pull/205) | Direct-booking deep-link helper for marketing / metasearch landings; channel activation notes under `docs/channels/`. See **Direct Booking Engine**. |
-| 16 | **Agent orchestration** | [#262](https://github.com/telivityai/haip/pull/262) | Agent dependency graph (`agent-graph.ts`), RManager lever order + `upstreamResults`, external cron via `scripts/cron/agent-runs.sh`, `GET .../graph` + `orchestration-performance`, Revenue UI graph / RManager runs. See **AI Agents** and [`docs/agents-orchestration.md`](./docs/agents-orchestration.md). |
+| 16 | **Agent orchestration** | [#262](https://github.com/telivityai/haip/pull/262) | Agent dependency graph (`agent-graph.ts`), RManager lever order + `upstreamResults`, external cron via `scripts/cron/agent-runs.sh`, `GET .../graph` + `orchestration-performance`, Revenue UI graph / RManager runs. See **BAIA Agents** and [`docs/agents-orchestration.md`](./docs/agents-orchestration.md). |
 
 ### Direct Booking Engine (commission-free)
 - A **public, guest-facing booking API** (`/api/v1/booking-engine/*`) a hotel puts behind its own website — search → quote → book → pay → confirm — capturing direct reservations with **zero OTA commission**.
@@ -680,7 +680,7 @@ The seed script creates a fully configured demo property with realistic data:
 | Folios | 16 | With charges (room, tax, minibar, spa) and payments |
 | Housekeeping Tasks | 18 | Checkout cleans, stayovers, deep cleans, inspections with checklists |
 | Tax Profiles | 4 | Miami Beach 13%, Barcelona IVA+tourist, Amsterdam BTW+tourist, Berlin split |
-| **AI Agents** | **12** | **Enabled in suggest mode — incl. the Revenue Manager orchestrator** |
+| **BAIA Agents** | **12** | **Enabled in suggest mode — incl. the Revenue Manager orchestrator** |
 | **Agent Decisions** | **10** | **A live decision log: revenue strategy, pricing, forecast, overbooking…** |
 | **Guest Reviews** | **5** | **Two with AI-drafted responses, the rest awaiting action** |
 
@@ -770,7 +770,7 @@ Integrator shape notes (`propertyId` locations, cancel field aliases, response e
 ### Core Endpoints (~167 total)
 
 <details>
-<summary><strong>AI Agents</strong> — 16 endpoints</summary>
+<summary><strong>BAIA Agents</strong> — 16 endpoints</summary>
 
 ```
 GET    /api/v1/agents/:propertyId                              # List all agents with status
@@ -1263,3 +1263,9 @@ Copyright 2026 Telivity. You may use, modify, and distribute this software under
 <p align="center">
   <sub>Built by <a href="https://github.com/TelivityAI">Telivity</a> — open-source travel infrastructure for the AI era.</sub>
 </p>
+## Features (BAIA Lodge PMS)
+- Multi-tenant property management
+- Direct booking engine
+- WhatsApp integration via MultiWA
+- AI agents (OpenRouter free models: upstage/solar-pro4:free)
+- Stripe billing
