@@ -157,7 +157,7 @@ describe('SiteMinder Mapper', () => {
       },
     };
 
-    it('should map SiteMinder reservation to HAIP format', () => {
+    it('should map SiteMinder reservation to BAIA format', () => {
       const reservations = mapSiteMinderReservationToHaip(sampleData);
 
       expect(reservations).toHaveLength(1);

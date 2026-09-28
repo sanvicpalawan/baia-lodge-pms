@@ -1,4 +1,4 @@
-# Full-surface smoke (self-hosted HAIP)
+# Full-surface smoke (self-hosted BAIA)
 
 Run this on every candidate production (or staging twin) deploy before putting
 real guests or chargeable traffic on the instance. Desk vignettes alone are
@@ -6,7 +6,7 @@ real guests or chargeable traffic on the instance. Desk vignettes alone are
 
 ## Environment
 
-- Dashboard served by your HAIP API (compose: `http://localhost:3000`)
+- Dashboard served by your BAIA API (compose: `http://localhost:3000`)
 - Sign in via Keycloak with a staff/admin user for **property A**
 - Always open routes with `?propertyId=<PROPERTY_A>`
 - Never put passwords in notes or screenshots you share

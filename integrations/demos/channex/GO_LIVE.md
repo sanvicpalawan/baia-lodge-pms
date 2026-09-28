@@ -25,6 +25,6 @@ Full runbook: [docs/channels/channex-certification.md](../../../docs/channels/ch
    POST /api/v1/channels/push/rates
    ```
    (body: `propertyId`, `channelConnectionId`, `startDate`, `endDate`)
-5. Pull a test reservation (or send inbound webhook) and confirm it lands in HAIP.
+5. Pull a test reservation (or send inbound webhook) and confirm it lands in BAIA.
 
 Docs: docs/integrations/channel-beds24-channex.md

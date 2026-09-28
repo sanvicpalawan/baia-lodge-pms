@@ -1,6 +1,6 @@
 # Serbia fiscal and guest registration (framework)
 
-This note describes how HAIP wires **property-level provider keys** for Serbian compliance integrations named in the [integration catalog](../INTEGRATIONS.md). HAIP core does **not** embed tax authority or police APIs; it stores configuration, listens for lifecycle events, and delegates to a registered provider (console/demo adapters ship in-repo; production credentials belong in your deployment secrets story).
+This note describes how BAIA wires **property-level provider keys** for Serbian compliance integrations named in the [integration catalog](../INTEGRATIONS.md). BAIA core does **not** embed tax authority or police APIs; it stores configuration, listens for lifecycle events, and delegates to a registered provider (console/demo adapters ship in-repo; production credentials belong in your deployment secrets story).
 
 ## Provider keys
 
@@ -34,7 +34,7 @@ Store sensitive values using the same operational pattern as other integration c
 
 ## Fiscal documents (`invoice.*`)
 
-HAIP follows the generic fiscal document flow documented in [Webhooks & events](../webhooks.md#fiscal-documents-invoice):
+BAIA follows the generic fiscal document flow documented in [Webhooks & events](../webhooks.md#fiscal-documents-invoice):
 
 1. Request a document on a folio (`POST /api/v1/folios/:folioId/fiscal-documents`) → **`invoice.requested`**.
 2. When a fiscal provider is configured, the in-process listener calls the provider and then records issuance via `FiscalDocumentService.issue()` (same as an external integration calling the issue endpoint).
@@ -44,7 +44,7 @@ With no provider configured, step 2 is a no-op and external subscribers can hand
 
 ## Guest registration (check-in / check-out)
 
-When `guestRegistrationProviderKey` is set, HAIP calls the provider on:
+When `guestRegistrationProviderKey` is set, BAIA calls the provider on:
 
 - **`reservation.checked_in`**
 - **`reservation.checked_out`**

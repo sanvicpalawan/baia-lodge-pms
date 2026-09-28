@@ -1,14 +1,14 @@
 ---
 name: haip-code-handoff
-description: Use this skill whenever handing off a build task to Claude Code for the HAIP project. Trigger on "hand off to Claude Code", "build this", "code this module", "Claude Code brief", or whenever an approved spec or phase needs to go to the builder. HAIP builds follow HAIP rules — PROJECT_INSTRUCTIONS.md as constitution, no invented domain logic, TypeScript/Node/pnpm/NestJS stack.
+description: Use this skill whenever handing off a build task to Claude Code for the BAIA project. Trigger on "hand off to Claude Code", "build this", "code this module", "Claude Code brief", or whenever an approved spec or phase needs to go to the builder. BAIA builds follow BAIA rules — PROJECT_INSTRUCTIONS.md as constitution, no invented domain logic, TypeScript/Node/pnpm/NestJS stack.
 ---
 
-# HAIP Code Handoff Protocol
+# BAIA Code Handoff Protocol
 
 ## Before Handing Off
 
 1. Read `instructions/PROJECT_INSTRUCTIONS.md` — confirm tech stack and rules
-2. Read `HAIP_BUILD_PLAN.md` — confirm which phase we're building
+2. Read `BAIA_BUILD_PLAN.md` — confirm which phase we're building
 3. Read relevant KB sections for the module being built
 4. Check if agent specs exist in `specs/` for the work being done
 
@@ -17,9 +17,9 @@ description: Use this skill whenever handing off a build task to Claude Code for
 Every Claude Code handoff MUST include:
 
 ```markdown
-# HAIP BUILD BRIEF — [Module Name]
+# BAIA BUILD BRIEF — [Module Name]
 
-**Project:** HAIP (Hotel AI Platform)
+**Project:** BAIA (BAIA Lodge PMS)
 **Repo:** [repo URL once created]
 **Component:** [Phase X — Module Name]
 **Priority:** [P0/P1/P2]
@@ -55,5 +55,5 @@ Read PROJECT_INSTRUCTIONS.md in the repo root. Core rule: DO NOT INVENT HOTEL DO
 
 1. Review the PR against the brief
 2. Run quality gate skill before approving
-3. Update HAIP_BUILD_PLAN.md with completion status
+3. Update BAIA_BUILD_PLAN.md with completion status
 4. Log any new domain questions discovered during build

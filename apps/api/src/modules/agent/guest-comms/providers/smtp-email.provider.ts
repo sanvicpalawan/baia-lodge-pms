@@ -108,7 +108,7 @@ export class SmtpEmailProvider implements EmailProvider {
       text: message.text,
       messageId: message.messageId,
       headers: message.idempotencyKey
-        ? { 'X-HAIP-Idempotency-Key': message.idempotencyKey }
+        ? { 'X-BAIA-Idempotency-Key': message.idempotencyKey }
         : undefined,
     };
 

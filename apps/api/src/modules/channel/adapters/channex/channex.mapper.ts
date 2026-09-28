@@ -125,7 +125,7 @@ export function mapRestrictionsToChannex(
       closed_to_arrival: item.closedToArrival,
       closed_to_departure: item.closedToDeparture,
     };
-    // HAIP models a single min LOS; map to Channex min_stay_arrival (cert Extra Notes).
+    // BAIA models a single min LOS; map to Channex min_stay_arrival (cert Extra Notes).
     if (item.minLos != null) base['min_stay_arrival'] = item.minLos;
     if (item.maxLos != null && item.maxLos > 0) base['max_stay'] = item.maxLos;
 
@@ -139,7 +139,7 @@ export function mapRestrictionsToChannex(
   });
 }
 
-/** Map Channex booking revision feed / webhook entries → HAIP reservations. */
+/** Map Channex booking revision feed / webhook entries → BAIA reservations. */
 export function mapChannexRevisionToHaip(
   revision: Record<string, unknown>,
   propertyId: string,

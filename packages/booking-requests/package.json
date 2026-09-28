@@ -1,7 +1,7 @@
 {
   "name": "@telivityhaip/booking-requests",
   "version": "0.0.1",
-  "description": "Optional HAIP booking-requests module (request-first direct booking)",
+  "description": "Optional BAIA booking-requests module (request-first direct booking)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

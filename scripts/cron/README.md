@@ -1,6 +1,6 @@
-# HAIP scheduled jobs (cron)
+# BAIA scheduled jobs (cron)
 
-HAIP has no in-process scheduler. Run these scripts from **system cron**, Kubernetes CronJob, or similar.
+BAIA has no in-process scheduler. Run these scripts from **system cron**, Kubernetes CronJob, or similar.
 
 Full endpoint reference: [`docs/operations/cron.md`](../../docs/operations/cron.md).
 
@@ -18,8 +18,8 @@ Two supported options:
 4. Export:
 
 ```bash
-export HAIP_URL=https://pms.example.com
-export HAIP_PROPERTY_ID=<property-uuid>
+export BAIA_URL=https://pms.example.com
+export BAIA_PROPERTY_ID=<property-uuid>
 export KEYCLOAK_URL=https://auth.example.com
 export KEYCLOAK_REALM=haip
 export KEYCLOAK_CLIENT_ID=haip-cron
@@ -32,16 +32,16 @@ Full Keycloak + local user linking guide: [docs/integrations/service-principal.m
 
 ### Option B — Pre-issued token
 
-If you refresh tokens externally, set `HAIP_CRON_TOKEN` to a valid Bearer JWT and omit Keycloak client vars.
+If you refresh tokens externally, set `BAIA_CRON_TOKEN` to a valid Bearer JWT and omit Keycloak client vars.
 
 ## Environment variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `HAIP_URL` | yes | Base URL of your deployment (no trailing slash) |
-| `HAIP_PROPERTY_ID` | yes | Property UUID to operate on |
-| `HAIP_BUSINESS_DATE` | no | Night audit date (`YYYY-MM-DD`); defaults to yesterday UTC |
-| `HAIP_CRON_TOKEN` | option B | Pre-fetched JWT |
+| `BAIA_URL` | yes | Base URL of your deployment (no trailing slash) |
+| `BAIA_PROPERTY_ID` | yes | Property UUID to operate on |
+| `BAIA_BUSINESS_DATE` | no | Night audit date (`YYYY-MM-DD`); defaults to yesterday UTC |
+| `BAIA_CRON_TOKEN` | option B | Pre-fetched JWT |
 | `KEYCLOAK_URL` | option A | Keycloak base URL |
 | `KEYCLOAK_REALM` | option A | Realm name (default `haip`) |
 | `KEYCLOAK_CLIENT_ID` | option A | Cron service client id |

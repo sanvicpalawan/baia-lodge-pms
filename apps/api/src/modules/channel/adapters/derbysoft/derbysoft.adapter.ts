@@ -52,7 +52,7 @@ export class DerbySoftAdapter implements ChannelAdapter {
 
     const cfg = { ...DEFAULT_DERBYSOFT_CONFIG, ...env, ...(connectionConfig ?? {}) } as DerbySoftConfig;
 
-    // Accept hotelId aliases used elsewhere in HAIP channel configs.
+    // Accept hotelId aliases used elsewhere in BAIA channel configs.
     if (!cfg.hotelId && typeof connectionConfig?.['hotelCode'] === 'string') {
       cfg.hotelId = connectionConfig['hotelCode'] as string;
     }
@@ -96,7 +96,7 @@ export class DerbySoftAdapter implements ChannelAdapter {
     return { success: errors.length === 0, itemsSynced, errors };
   }
 
-  /** HAIP availability → PC Update Inventory. */
+  /** BAIA availability → PC Update Inventory. */
   async pushAvailability(params: AvailabilityPushParams): Promise<ChannelSyncResult> {
     const config = this.resolveConfig(params.connectionConfig);
     const type = this.ariType(config, params.connectionConfig?.['ariUpdateType'] as AriUpdateType | undefined);
@@ -113,7 +113,7 @@ export class DerbySoftAdapter implements ChannelAdapter {
     return this.pushPayloads(this.client(config), config.tunnelBaseUrl, 'rate', payloads, 'rate');
   }
 
-  /** HAIP restrictions → PC Update Availability (product-level). */
+  /** BAIA restrictions → PC Update Availability (product-level). */
   async pushRestrictions(params: RestrictionPushParams): Promise<ChannelSyncResult> {
     const config = this.resolveConfig(params.connectionConfig);
     const type = this.ariType(config, params.connectionConfig?.['ariUpdateType'] as AriUpdateType | undefined);

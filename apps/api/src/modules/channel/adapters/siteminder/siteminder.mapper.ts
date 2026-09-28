@@ -6,7 +6,7 @@ import type {
 } from '../../channel-adapter.interface';
 
 /**
- * Map HAIP availability + restrictions → OTA_HotelAvailNotifRQ body.
+ * Map BAIA availability + restrictions → OTA_HotelAvailNotifRQ body.
  * SiteMinder combines availability and restrictions in one message.
  */
 export function mapAvailabilityToOta(
@@ -73,7 +73,7 @@ export function mapAvailabilityToOta(
 }
 
 /**
- * Map HAIP rate items → OTA_HotelRateAmountNotifRQ body.
+ * Map BAIA rate items → OTA_HotelRateAmountNotifRQ body.
  */
 export function mapRatesToOta(
   hotelCode: string,
@@ -125,7 +125,7 @@ export function mapRatesToOta(
 }
 
 /**
- * Parse OTA_ResRetrieveRS → array of HAIP ChannelReservation objects.
+ * Parse OTA_ResRetrieveRS → array of BAIA ChannelReservation objects.
  */
 export function mapSiteMinderReservationToHaip(
   data: Record<string, unknown>,

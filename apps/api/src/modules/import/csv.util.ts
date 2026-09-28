@@ -5,7 +5,7 @@
  * modest and this avoids pulling in a parser library.
  */
 
-/** Common PMS export headers → HAIP canonical import fields. */
+/** Common PMS export headers → BAIA canonical import fields. */
 const HEADER_ALIASES: Record<string, string> = {
   'first name': 'firstName',
   firstname: 'firstName',

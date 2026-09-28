@@ -9,7 +9,7 @@ import {
 
 describe('BookingCom Mapper', () => {
   describe('mapAvailabilityToOta', () => {
-    it('should map HAIP availability items to OTA XML payload', () => {
+    it('should map BAIA availability items to OTA XML payload', () => {
       const items = [
         { channelRoomCode: 'DLXK', date: '2026-04-15', available: 5, totalInventory: 10 },
         { channelRoomCode: 'DLXK', date: '2026-04-16', available: 3, totalInventory: 10 },
@@ -37,7 +37,7 @@ describe('BookingCom Mapper', () => {
   });
 
   describe('mapRatesToOta', () => {
-    it('should map HAIP rate items to OTA XML payload', () => {
+    it('should map BAIA rate items to OTA XML payload', () => {
       const items = [
         {
           channelRoomCode: 'DLXK',
@@ -62,7 +62,7 @@ describe('BookingCom Mapper', () => {
   });
 
   describe('mapRestrictionsToOta', () => {
-    it('should map HAIP restriction items to OTA XML payload', () => {
+    it('should map BAIA restriction items to OTA XML payload', () => {
       const items = [
         {
           channelRoomCode: 'DLXK',
@@ -149,7 +149,7 @@ describe('BookingCom Mapper', () => {
       },
     };
 
-    it('should map OTA reservation to HAIP format', () => {
+    it('should map OTA reservation to BAIA format', () => {
       const reservations = mapOtaReservationToHaip(sampleData);
 
       expect(reservations).toHaveLength(1);

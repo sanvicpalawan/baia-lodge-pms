@@ -1,5 +1,5 @@
 /**
- * Shared postgres.js options for HAIP database connections.
+ * Shared postgres.js options for BAIA database connections.
  *
  * Used by the API, seed, and push-schema so pooler/TLS behaviour cannot drift.
  *

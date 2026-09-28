@@ -92,7 +92,7 @@ describe('Stripe financial webhook state', () => {
       .toThrow(/correlation metadata/i);
   });
 
-  it('classifies metadata by HAIP ownership before correlation parsing', () => {
+  it('classifies metadata by BAIA ownership before correlation parsing', () => {
     expect(classifyHaipMetadata({}, paymentIntentCorrelation)).toEqual({ ownership: 'external' });
     expect(classifyHaipMetadata({ unrelated: 'value' }, paymentIntentCorrelation))
       .toEqual({ ownership: 'external' });
@@ -112,7 +112,7 @@ describe('Stripe financial webhook state', () => {
     });
   });
 
-  it('classifies HAIP-owned vs external PaymentIntent metadata (core one-arg form)', () => {
+  it('classifies BAIA-owned vs external PaymentIntent metadata (core one-arg form)', () => {
     expect(classifyHaipMetadata({})).toBe('external');
     expect(classifyHaipMetadata({ unrelated: 'value' })).toBe('external');
     expect(classifyHaipMetadata({ haip_payment_id: 'payment-1' })).toBe('owned-valid');

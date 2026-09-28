@@ -1347,7 +1347,7 @@ export const INTEGRATION_REGISTRY_SEED: IntegrationRegistrySeedRow[] = [
     docsPath: 'docs/integrations/wave3-partner-surface.md',
     adapterKey: null,
     description:
-      'IFTTT partner applet/service listing for trigger-action workflows connected to HAIP events.',
+      'IFTTT partner applet/service listing for trigger-action workflows connected to BAIA events.',
   },
   {
     slug: 'metabase',

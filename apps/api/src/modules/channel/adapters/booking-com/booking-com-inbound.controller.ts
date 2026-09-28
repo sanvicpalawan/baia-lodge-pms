@@ -88,7 +88,7 @@ export class BookingComInboundController {
         return this.sendErrorXml(res, '400', 'Invalid XML payload');
       }
 
-      // Map OTA reservation to HAIP format
+      // Map OTA reservation to BAIA format
       const reservations = mapOtaReservationToHaip(parsed.data);
 
       if (reservations.length === 0) {

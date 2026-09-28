@@ -77,7 +77,7 @@ export function buildIcsCalendar(events: IcalExportEvent[]): string {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//HAIP//iCal Bridge//EN',
+    'PRODID:-//BAIA//iCal Bridge//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
   ];

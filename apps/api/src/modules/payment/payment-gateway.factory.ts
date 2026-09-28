@@ -73,7 +73,7 @@ export function createPaymentGateway(configService: ConfigService): PaymentGatew
   }
 }
 
-/** True when HAIP would use MockGateway / console mode for payments (boot guard). */
+/** True when BAIA would use MockGateway / console mode for payments (boot guard). */
 export function isPaymentGatewayMockMode(env: NodeJS.ProcessEnv = process.env): boolean {
   const explicit = env['PAYMENT_GATEWAY']?.trim().toLowerCase();
   if (explicit === 'mock') return true;

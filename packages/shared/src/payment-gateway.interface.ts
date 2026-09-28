@@ -1,4 +1,4 @@
-/** Hosted-checkout continuation when the guest must leave HAIP to pay (Redsys TPV). */
+/** Hosted-checkout continuation when the guest must leave BAIA to pay (Redsys TPV). */
 export interface PaymentGatewayNextAction {
   type: 'redirect';
   url: string;

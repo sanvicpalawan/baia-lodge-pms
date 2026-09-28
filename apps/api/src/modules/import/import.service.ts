@@ -291,7 +291,7 @@ export class ImportService {
       const haipId = await input.legacyIdMap.lookup(propertyId, input.projectId, entity, legacyValue);
       if (!haipId) {
         throw new BadRequestException(
-          `No HAIP id mapped for ${entity} legacy id "${legacyValue}" in project ${input.projectId}`,
+          `No BAIA id mapped for ${entity} legacy id "${legacyValue}" in project ${input.projectId}`,
         );
       }
       row[targetField] = haipId;

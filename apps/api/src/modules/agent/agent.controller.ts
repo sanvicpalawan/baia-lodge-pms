@@ -146,7 +146,7 @@ export class AgentController {
 
   @Post(':propertyId/decisions/:id/explain')
   @ApiOperation({
-    summary: 'HAIP AI: grounded plain-language rationale + suggestions for a decision',
+    summary: 'BAIA AI: grounded plain-language rationale + suggestions for a decision',
   })
   @ApiResponse({ status: 201, description: 'Explanation (or {explanation:null} if the model is off)' })
   @ApiQuery({ name: 'force', required: false, description: 'Regenerate even if cached' })

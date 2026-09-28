@@ -6,10 +6,10 @@ import { loadStripe } from '@stripe/stripe-js';
  * StripeProvider wraps children with Stripe Elements context.
  *
  * Loads Stripe.js with the publishable key from environment variables.
- * Card data never touches HAIP servers — Stripe.js handles all card input
- * client-side. Only the PaymentMethod ID (pm_xxx) is sent to the HAIP API.
+ * Card data never touches BAIA servers — Stripe.js handles all card input
+ * client-side. Only the PaymentMethod ID (pm_xxx) is sent to the BAIA API.
  *
- * PCI DSS: This pattern keeps HAIP out of PCI scope entirely.
+ * PCI DSS: This pattern keeps BAIA out of PCI scope entirely.
  */
 
 interface StripeProviderProps {

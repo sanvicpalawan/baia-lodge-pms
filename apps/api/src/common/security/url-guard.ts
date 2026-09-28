@@ -94,7 +94,7 @@ export async function assertSafeOutboundUrl(
  * point it at an internal/metadata host and trigger a server-side fetch. Block
  * private targets in production. Local/dev (docker mock OTA servers on private
  * hosts) is allowed unless explicitly locked down, mirroring the project's
- * NODE_ENV / opt-in posture (cf. HAIP_ALLOW_INSECURE).
+ * NODE_ENV / opt-in posture (cf. BAIA_ALLOW_INSECURE).
  */
 export async function assertSafeChannelEndpoint(raw: string): Promise<void> {
   // Enforce for any production-like environment (production OR staging), matching

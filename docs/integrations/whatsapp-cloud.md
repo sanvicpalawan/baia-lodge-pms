@@ -1,6 +1,6 @@
 # WhatsApp Cloud API
 
-Meta WhatsApp Cloud API for guest WhatsApp messages via HAIP notifications.
+Meta WhatsApp Cloud API for guest WhatsApp messages via BAIA notifications.
 
 ## Provider
 

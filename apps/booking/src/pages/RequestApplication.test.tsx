@@ -697,7 +697,7 @@ describe('instant booking regression', () => {
     });
     api.book.mockResolvedValue({
       success: true,
-      confirmationNumber: 'HAIP-12345678',
+      confirmationNumber: 'BAIA-12345678',
       reservationId: 'reservation-123',
       status: 'confirmed',
       currencyCode: 'EUR',
@@ -734,7 +734,7 @@ describe('instant booking regression', () => {
 
     await waitFor(() => expect(api.book).toHaveBeenCalledOnce());
     expect(await screen.findByText('Booking confirmed')).toBeVisible();
-    expect(screen.getByText('HAIP-12345678')).toBeVisible();
+    expect(screen.getByText('BAIA-12345678')).toBeVisible();
     expect(api.submitRequest).not.toHaveBeenCalled();
   });
 });

@@ -1,6 +1,6 @@
 # Integration recipes
 
-Short, practical how-tos for wiring HAIP to common automation and back-office tools. Each recipe points at real REST paths on your HAIP instance (`/api/v1/...`).
+Short, practical how-tos for wiring BAIA to common automation and back-office tools. Each recipe points at real REST paths on your BAIA instance (`/api/v1/...`).
 
 For the full integration catalog, see **[Integration catalog](../INTEGRATIONS.md)**.
 
@@ -14,10 +14,10 @@ Staff REST request/response conventions (propertyId locations, envelopes, pagina
 
 | Recipe | What it covers |
 |--------|----------------|
-| [Webhooks in n8n](webhooks-n8n.md) | Catch HMAC-signed HAIP events |
+| [Webhooks in n8n](webhooks-n8n.md) | Catch HMAC-signed BAIA events |
 | [Webhooks in Make](webhooks-make.md) | Same pattern on Make.com |
 | [Webhooks in Zapier](webhooks-zapier.md) | Webhooks by Zapier catch |
-| [Slack, Teams, Discord](slack-teams-discord.md) | Post HAIP events to chat incoming webhooks |
+| [Slack, Teams, Discord](slack-teams-discord.md) | Post BAIA events to chat incoming webhooks |
 | [Connect API key](connect-api-key.md) | `x-api-key` auth, OpenAPI, subscriptions |
 | [Service principal (Keycloak JWT)](service-principal.md) | Staff REST for server integrations — client credentials + `pnpm integration:link` |
 | [Folio inbound (POS)](folio-inbound-pos.md) | Post incidental charges from any POS |

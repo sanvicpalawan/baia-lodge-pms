@@ -39,7 +39,7 @@ interface ImportResult {
 
 const UNMAPPED = '';
 
-/** Common PMS export headers → HAIP canonical fields (keep in sync with API csv.util). */
+/** Common PMS export headers → BAIA canonical fields (keep in sync with API csv.util). */
 const HEADER_ALIASES: Record<string, string> = {
   'first name': 'firstName',
   firstname: 'firstName',

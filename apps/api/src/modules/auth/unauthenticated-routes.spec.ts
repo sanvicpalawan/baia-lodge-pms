@@ -20,7 +20,7 @@ describe('Unauthenticated access to financial module routes', () => {
     for (const key of [
       'NODE_ENV',
       'AUTH_ENABLED',
-      'HAIP_ALLOW_INSECURE',
+      'BAIA_ALLOW_INSECURE',
       'SERVE_DASHBOARD',
       'SERVE_BOOKING',
     ]) {
@@ -28,7 +28,7 @@ describe('Unauthenticated access to financial module routes', () => {
     }
     process.env['NODE_ENV'] = 'test';
     process.env['AUTH_ENABLED'] = 'true';
-    process.env['HAIP_ALLOW_INSECURE'] = 'true';
+    process.env['BAIA_ALLOW_INSECURE'] = 'true';
     process.env['SERVE_DASHBOARD'] = 'false';
     process.env['SERVE_BOOKING'] = 'false';
 

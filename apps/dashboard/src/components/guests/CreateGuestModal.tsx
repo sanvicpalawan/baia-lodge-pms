@@ -770,7 +770,7 @@ export default function CreateGuestModal({
                 type="text"
                 value={loyaltyNumber}
                 onChange={(e) => setLoyaltyNumber(e.target.value)}
-                placeholder="HAIP-1234"
+                placeholder="BAIA-1234"
                 className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-telivity-teal bg-white"
               />
             </div>

@@ -82,7 +82,7 @@ describe('ConnectScopeGuard', () => {
     db.select.mockReturnValue({
       from: () => ({ where: () => Promise.resolve([{ propertyId: B }]) }),
     });
-    const req: any = { connect: { scope: 'property', propertyId: A }, params: { confirmationNumber: 'HAIP-XYZ' } };
+    const req: any = { connect: { scope: 'property', propertyId: A }, params: { confirmationNumber: 'BAIA-XYZ' } };
     await expect(guard.canActivate(ctx(req))).rejects.toBeInstanceOf(ForbiddenException);
   });
 
@@ -90,7 +90,7 @@ describe('ConnectScopeGuard', () => {
     db.select.mockReturnValue({
       from: () => ({ where: () => Promise.resolve([{ propertyId: A }]) }),
     });
-    const req: any = { connect: { scope: 'property', propertyId: A }, params: { confirmationNumber: 'HAIP-XYZ' } };
+    const req: any = { connect: { scope: 'property', propertyId: A }, params: { confirmationNumber: 'BAIA-XYZ' } };
     await expect(guard.canActivate(ctx(req))).resolves.toBe(true);
   });
 

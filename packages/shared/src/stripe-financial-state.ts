@@ -76,7 +76,7 @@ export function paymentIntentCorrelation(
     || !uuid.test(correlation.paymentId)
     || !uuid.test(correlation.propertyId)
     || !uuid.test(correlation.bookingRequestId)) {
-    throw new BadRequestException('Stripe PaymentIntent is missing exact HAIP correlation metadata');
+    throw new BadRequestException('Stripe PaymentIntent is missing exact BAIA correlation metadata');
   }
   return correlation as PaymentIntentCorrelation;
 }
@@ -175,7 +175,7 @@ export function refundCorrelation(
     || !correlation.propertyId
     || !correlation.bookingRequestId
     || !correlation.paymentId) {
-    throw new BadRequestException('Stripe refund is missing exact HAIP correlation metadata');
+    throw new BadRequestException('Stripe refund is missing exact BAIA correlation metadata');
   }
   return correlation as RefundCorrelation;
 }

@@ -5,8 +5,8 @@ function stubAdapter() {
   return {
     searchHotels: async () => ({ results: [] }),
     getProperty: async () => ({ id: 'p1' }),
-    createReservation: async () => ({ confirmationNumber: 'HAIP-X' }),
-    getReservation: async () => ({ confirmationNumber: 'HAIP-X' }),
+    createReservation: async () => ({ confirmationNumber: 'BAIA-X' }),
+    getReservation: async () => ({ confirmationNumber: 'BAIA-X' }),
     modifyReservation: async () => ({ ok: true }),
     cancelReservation: async () => ({ ok: true }),
     upstreamHealthy: async () => true,

@@ -173,7 +173,7 @@ describe('DerbySoftAdapter', () => {
     const result = await adapter.confirmReservation({
       channelConnectionId: 'c1',
       externalConfirmation: 'DR1',
-      pmsConfirmationNumber: 'HAIP-1',
+      pmsConfirmationNumber: 'BAIA-1',
     });
     expect(result.success).toBe(true);
     expect(String(mockFetch.mock.calls[1]![0])).toContain('/resStatus');

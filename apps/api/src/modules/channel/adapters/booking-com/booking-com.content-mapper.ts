@@ -36,7 +36,7 @@ export interface PhotoValidationResult {
 }
 
 /**
- * Validate HAIP media against the real Booking.com Photo API limits. Dimension/
+ * Validate BAIA media against the real Booking.com Photo API limits. Dimension/
  * size checks only apply when metadata is known (stock URLs have none) — format
  * is checked via contentType or URL extension.
  */
@@ -84,7 +84,7 @@ function isAllowedFormat(img: ContentMediaItem): boolean {
 }
 
 /**
- * HAIP media.category → Booking.com photo tag_ids. Booking's photo tag list is a
+ * BAIA media.category → Booking.com photo tag_ids. Booking's photo tag list is a
  * separate numeric code list not fully readable here; this map is intentionally
  * sparse and omits unknown categories (better to send no tag than a wrong one).
  * TODO: load the live tag list from the Booking.com tags endpoint and complete.
@@ -107,15 +107,15 @@ export function mapMediaToBookingPhotos(images: ContentMediaItem[]): BookingPend
 }
 
 /**
- * HAIP amenity strings → Booking.com RMA (Room Amenity Type) codes.
+ * BAIA amenity strings → Booking.com RMA (Room Amenity Type) codes.
  * Sparse seed; complete from /codes-rma. VERIFY.
  */
-export const HAIP_AMENITY_TO_RMA: Record<string, number> = {
+export const BAIA_AMENITY_TO_RMA: Record<string, number> = {
   // e.g. 'wifi': <code>, 'minibar': <code> — VERIFY against /codes-rma.
 };
 
 export function mapAmenitiesToRma(amenities: string[] = []): number[] {
-  return amenities.map((a) => HAIP_AMENITY_TO_RMA[a]).filter((c): c is number => c != null);
+  return amenities.map((a) => BAIA_AMENITY_TO_RMA[a]).filter((c): c is number => c != null);
 }
 
 /** Rooms API room body (VERIFY field names against the Rooms API OpenAPI spec). */

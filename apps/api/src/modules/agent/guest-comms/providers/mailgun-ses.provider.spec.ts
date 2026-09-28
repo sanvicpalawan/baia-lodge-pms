@@ -150,11 +150,11 @@ describe('SesEmailProvider', () => {
     });
     const init = vi.mocked(global.fetch).mock.calls[0]?.[1];
     expect(init?.headers).toMatchObject({
-      'X-HAIP-Idempotency-Key': 'stable-delivery-1',
+      'X-BAIA-Idempotency-Key': 'stable-delivery-1',
     });
     const payload = JSON.parse(String(init?.body));
     expect(payload.Content.Simple.Headers).toContainEqual({
-      Name: 'X-HAIP-Message-ID', Value: '<stable-delivery-1@haip.local>',
+      Name: 'X-BAIA-Message-ID', Value: '<stable-delivery-1@haip.local>',
     });
   });
 

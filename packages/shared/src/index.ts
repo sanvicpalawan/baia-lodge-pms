@@ -1,5 +1,5 @@
 /**
- * HAIP Shared — Types, constants, and utilities shared across packages.
+ * BAIA Shared — Types, constants, and utilities shared across packages.
  */
 
 export { Public, IS_PUBLIC_KEY, RequirePermissions, PERMISSIONS_KEY } from './access-decorators.js';

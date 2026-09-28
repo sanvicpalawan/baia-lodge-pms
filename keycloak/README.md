@@ -20,7 +20,7 @@ Shipped in `haip-realm.json` for assignment to service-account users:
 | `integration_inventory` | Room inventory tooling (`rooms.read`, `rooms.write`, `ops.manage` locally) |
 | `integration_reservations` | Enquiry / booking pipelines (`reservations.*`, `guests.*`, `rooms.read`) |
 
-Local permission grants still come from HAIP `role_permissions` — run `pnpm integration:link` after Keycloak setup.
+Local permission grants still come from BAIA `role_permissions` — run `pnpm integration:link` after Keycloak setup.
 
 ## Mapper snippets (Admin Console)
 
@@ -41,7 +41,7 @@ Add to your integration client (or a dedicated client scope assigned to it).
 - Add to access token: **ON**
 - Multivalued: **ON** (repeat claim or use multiple values per Keycloak version UI)
 
-For multiple properties, add multiple values or use a script mapper — HAIP expects a JSON array of UUID strings on the claim.
+For multiple properties, add multiple values or use a script mapper — BAIA expects a JSON array of UUID strings on the claim.
 
 ### Example hardcoded claim JSON (import-oriented)
 

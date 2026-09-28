@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/HAIP-Hotel%20AI%20Platform-0066FF?style=for-the-badge&labelColor=000000" alt="HAIP" />
+  <img src="https://img.shields.io/badge/BAIA-Hotel%20AI%20Platform-0066FF?style=for-the-badge&labelColor=000000" alt="BAIA" />
 </p>
 
-<h1 align="center">HAIP — Hotel AI Platform</h1>
+<h1 align="center">BAIA — BAIA Lodge PMS</h1>
 
 <p align="center">
   <strong>The open-source, API-first hotel PMS where AI agents are first-class citizens.</strong>
@@ -18,11 +18,11 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/demo-dashboard.webp" alt="HAIP dashboard — reservations and AI agents" width="900" />
+  <img src="docs/images/demo-dashboard.webp" alt="BAIA dashboard — reservations and AI agents" width="900" />
 </p>
 
 <p align="center">
-  <a href="#what-is-haip">What is HAIP</a> &middot;
+  <a href="#what-is-haip">What is BAIA</a> &middot;
   <a href="#architecture">Architecture</a> &middot;
   <a href="#ai-agents">AI Agents</a> &middot;
   <a href="#features">Features</a> &middot;
@@ -37,17 +37,17 @@
 
 ---
 
-## What is HAIP
+## What is BAIA
 
 The hotel industry runs on closed-source, legacy PMS platforms that charge per-room fees, lock data behind proprietary APIs, and treat integrations as an afterthought. Hotels pay $5–15/room/month just for the privilege of managing their own operations.
 
-HAIP is a **complete, production-grade hotel Property Management System** built from scratch with modern architecture. Reservation lifecycle, folio & billing, rate plans, housekeeping with digital checklists, night audit, groups & commercial (allotment + rooming lists), accounting & cashiering (A/R, deposits, cash drawers, GL codes), channel distribution to 450+ OTAs, a **full commission-free direct booking engine** (guest-facing widget + public booking API) so hotels take reservations straight from their own website, **pluggable payment gateways** (Stripe and other PSPs), Keycloak authentication, local user & role administration, media management for property and room photos, tax calculation, fiscal invoicing & guest-registration providers, an **integration registry** for adapters and providers, door-lock credential hooks, revenue management — and **12 built-in AI agents** that orchestrate revenue strategy, optimize pricing, predict cancellations, detect audit anomalies, prioritize receivables collections, forecast group pickup, schedule housekeeping, automate guest communications, and draft review responses. It even ships a **ChatGPT gateway** so guests can search and book a room by chatting. Dashboard locales include English, German, and Portuguese (BR). All open source under Apache 2.0.
+BAIA is a **complete, production-grade hotel Property Management System** built from scratch with modern architecture. Reservation lifecycle, folio & billing, rate plans, housekeeping with digital checklists, night audit, groups & commercial (allotment + rooming lists), accounting & cashiering (A/R, deposits, cash drawers, GL codes), channel distribution to 450+ OTAs, a **full commission-free direct booking engine** (guest-facing widget + public booking API) so hotels take reservations straight from their own website, **pluggable payment gateways** (Stripe and other PSPs), Keycloak authentication, local user & role administration, media management for property and room photos, tax calculation, fiscal invoicing & guest-registration providers, an **integration registry** for adapters and providers, door-lock credential hooks, revenue management — and **12 built-in AI agents** that orchestrate revenue strategy, optimize pricing, predict cancellations, detect audit anomalies, prioritize receivables collections, forecast group pickup, schedule housekeeping, automate guest communications, and draft review responses. It even ships a **ChatGPT gateway** so guests can search and book a room by chatting. Dashboard locales include English, German, and Portuguese (BR). All open source under Apache 2.0.
 
-What makes HAIP different is that **AI agents are built into the architecture from day one** — not as a bolt-on, but as first-class citizens with their own lifecycle, decision logging, and per-property calibration (deterministic engines that learn each hotel's own rates from its history — not LLMs pretending to be agents). HAIP is the sister project to [OTAIP](https://github.com/telivity-otaip/otaip) (Open Travel AI Platform). Together they form **Telivity's open-source travel infrastructure**. OTAIP agents connect to HAIP via the Connect API — the PMS works without AI, but the AI makes it extraordinary.
+What makes BAIA different is that **AI agents are built into the architecture from day one** — not as a bolt-on, but as first-class citizens with their own lifecycle, decision logging, and per-property calibration (deterministic engines that learn each hotel's own rates from its history — not LLMs pretending to be agents). BAIA is the sister project to [OTAIP](https://github.com/telivity-otaip/otaip) (Open Travel AI Platform). Together they form **Telivity's open-source travel infrastructure**. OTAIP agents connect to BAIA via the Connect API — the PMS works without AI, but the AI makes it extraordinary.
 
-### What HAIP is NOT
+### What BAIA is NOT
 
-HAIP is not a wrapper around another PMS. It's not a SaaS dashboard with "AI" slapped on the marketing page. It's a real PMS with real hotel operations logic — night audits at 3am, folio routing rules, rate parity enforcement, guest registration compliance across jurisdictions. And it ships a **commission-free direct booking engine** so a hotel can take bookings straight from its own website — keeping the 15–25% an OTA would take.
+BAIA is not a wrapper around another PMS. It's not a SaaS dashboard with "AI" slapped on the marketing page. It's a real PMS with real hotel operations logic — night audits at 3am, folio routing rules, rate parity enforcement, guest registration compliance across jurisdictions. And it ships a **commission-free direct booking engine** so a hotel can take bookings straight from its own website — keeping the 15–25% an OTA would take.
 
 ---
 
@@ -63,7 +63,7 @@ graph TB
         ThirdParty["Third-Party Systems<br/>(Webhooks · Adapters)"]
     end
 
-    subgraph HAIP["HAIP PMS (NestJS)"]
+    subgraph BAIA["BAIA PMS (NestJS)"]
         direction TB
         REST["REST API<br/>OpenAPI 3.0"]
         WS["WebSocket Gateway<br/>Real-time Events"]
@@ -148,7 +148,7 @@ graph TB
 - **Event-driven** — Webhook events on every state change (`reservation.created`, `folio.charge_posted`, `room.status_changed`). Build anything on top.
 - **AI agents as first-class citizens** — 12 built-in agents with a common interface: `analyze() → recommend() → execute()`, coordinated by a Revenue Manager orchestrator. Three operating modes: manual, suggest, autopilot. Decision logging for continuous learning.
 - **ChannelAdapter pattern** — Same abstraction as OTAIP's ConnectAdapter. Booking.com + Expedia (EQC) direct adapters plus SiteMinder and DerbySoft aggregators for 450+ OTA reach — distributing **both** ARI and descriptive content (photos/descriptions/amenities).
-- **Layered RBAC** — Keycloak JWT authentication **plus HAIP's own local users, roles & permissions**: a code-defined permission catalog, operator-defined custom roles, and guards (`@Roles` + `@RequirePermissions`) on every endpoint.
+- **Layered RBAC** — Keycloak JWT authentication **plus BAIA's own local users, roles & permissions**: a code-defined permission catalog, operator-defined custom roles, and guards (`@Roles` + `@RequirePermissions`) on every endpoint.
 - **Polymorphic media** — One image model for properties, room types & rooms; add by URL (zero infra) or upload to S3/MinIO, with one enforced primary per owner.
 - **Compliance as infrastructure** — PCI tokenization via pluggable payment gateways, GDPR audit trails, jurisdiction-based tax calculation, fiscal document hooks, guest registration per jurisdiction. Not bolted on — built in.
 - **Integration registry** — channels, payments, messaging, fiscal, door locks, and more as discoverable adapters/providers — not one-off hardwires.
@@ -158,15 +158,15 @@ graph TB
 
 ## AI Agents
 
-HAIP includes **12 built-in AI agents** — 5 for revenue management (including the Revenue Manager orchestrator), 5 for operations intelligence, and 2 for guest engagement. Every agent follows the `HaipAgent` interface:
+BAIA includes **12 built-in AI agents** — 5 for revenue management (including the Revenue Manager orchestrator), 5 for operations intelligence, and 2 for guest engagement. Every agent follows the `HaipAgent` interface:
 
 ```
 analyze() → recommend() → execute() → recordOutcome() → train()
 ```
 
-### Orchestration (HAIP-hosted)
+### Orchestration (BAIA-hosted)
 
-HAIP orchestrates its own agents — there is no generic pipeline engine. **RManager** runs the revenue subgraph (`demand_forecast` → pricing / overbooking / channel_mix / group_pickup → one strategy). Ops and guest agents run on external cron or events. **OTAIP** orchestrates OTAIP agents over the Connect API only (Option B). Graph source of truth: `apps/api/src/modules/agent/agent-graph.ts`. Details: [`docs/agents-orchestration.md`](./docs/agents-orchestration.md).
+BAIA orchestrates its own agents — there is no generic pipeline engine. **RManager** runs the revenue subgraph (`demand_forecast` → pricing / overbooking / channel_mix / group_pickup → one strategy). Ops and guest agents run on external cron or events. **OTAIP** orchestrates OTAIP agents over the Connect API only (Option B). Graph source of truth: `apps/api/src/modules/agent/agent-graph.ts`. Details: [`docs/agents-orchestration.md`](./docs/agents-orchestration.md).
 
 ### Operating Modes
 
@@ -228,7 +228,7 @@ cold-start defaults.
 | Pricing · Revenue Manager · Group Pickup · AR · Housekeeping · Night Audit | Deterministic math/rules |
 | Guest Comms · Review Response | Deterministic templates (no LLM) |
 
-**HAIP AI (optional):** a small, purpose-built **local** model (served via Ollama) that
+**BAIA AI (optional):** a small, purpose-built **local** model (served via Ollama) that
 adds a plain-language *explanation + suggestions* layer over any agent decision — strictly
 grounded in that agent's own numbers, with the deterministic agent vetoing any figure it
 didn't compute (so it can't invent a rate, a policy, or a number). It **explains and
@@ -241,8 +241,8 @@ Enable it:
 ```bash
 # pull the model (Apache-2.0, ~5 GB), then turn it on
 ollama pull hf.co/telivity/haip-ai
-export HAIP_AI_ENABLED=true
-export HAIP_AI_MODEL=haip-ai
+export BAIA_AI_ENABLED=true
+export BAIA_AI_MODEL=haip-ai
 ```
 
 ---
@@ -443,13 +443,13 @@ Operator notes for activating existing adapters, metasearch landings on the dire
 ### Authentication & Authorization (Keycloak)
 - OAuth 2.0 / OpenID Connect via Keycloak identity provider
 - JWT validation with RS256 public key verification
-- Keycloak roles (`admin`, `front_desk`, `housekeeping`, `revenue_manager`) **plus HAIP's own local roles & permissions** (see *Users, Roles & Permissions* below)
+- Keycloak roles (`admin`, `front_desk`, `housekeeping`, `revenue_manager`) **plus BAIA's own local roles & permissions** (see *Users, Roles & Permissions* below)
 - `@Roles()` and `@RequirePermissions()` decorators guard every controller
 - `@Public()` decorator for unauthenticated endpoints (health checks)
 - `@CurrentUser()` decorator for extracting authenticated user context
 
 ### Users, Roles & Permissions (Admin Console)
-- **Local identity & authorization** layered on top of Keycloak login — HAIP owns its own `users`, `roles`, `role_permissions`, and `user_roles` tables (property-scoped, multi-tenant)
+- **Local identity & authorization** layered on top of Keycloak login — BAIA owns its own `users`, `roles`, `role_permissions`, and `user_roles` tables (property-scoped, multi-tenant)
 - **Code-defined permission catalog** (e.g. `reservations.write`, `rooms.read`, `housekeeping.manage`, `channels.manage`, `media.manage`, `admin.users.manage`) mapped 1:1 to API capabilities and dashboard nav items
 - **Custom roles** — operators create roles and grant granular permissions via a permission matrix; built-in system roles are protected from edits/deletion
 - `PermissionsGuard` + `@RequirePermissions()` augment the Keycloak JWT guard; permissions drive both API authorization **and** which nav items/pages each user sees
@@ -465,9 +465,9 @@ Operator notes for activating existing adapters, metasearch landings on the dire
 - See **[`docs/webhooks.md`](./docs/webhooks.md)** for the integration guide (signature verification, payload conventions, fiscal documents, regional compliance examples)
 
 ### ChatGPT Gateway (Connect GPT)
-- A standalone, deployable **gateway that exposes HAIP hotel search & booking as a ChatGPT Custom GPT Action** (`tools/haip-connect-gpt`) — guests search availability and create/modify/cancel reservations by chatting
-- A thin, typed client over HAIP's existing **Connect API** (`/api/v1/connect/*`) — no hotel logic is reimplemented; it builds a ChatGPT-importable **OpenAPI 3.1** spec for 6 operations (`searchHotels`, `getProperty`, `create`/`get`/`modify`/`cancelReservation`)
-- **Secure by design** — the gateway injects HAIP's API key server-side (the GPT never sees it), and response guards ensure **only selling prices** reach the model (net/wholesale/cost stripped)
+- A standalone, deployable **gateway that exposes BAIA hotel search & booking as a ChatGPT Custom GPT Action** (`tools/haip-connect-gpt`) — guests search availability and create/modify/cancel reservations by chatting
+- A thin, typed client over BAIA's existing **Connect API** (`/api/v1/connect/*`) — no hotel logic is reimplemented; it builds a ChatGPT-importable **OpenAPI 3.1** spec for 6 operations (`searchHotels`, `getProperty`, `create`/`get`/`modify`/`cancelReservation`)
+- **Secure by design** — the gateway injects BAIA's API key server-side (the GPT never sees it), and response guards ensure **only selling prices** reach the model (net/wholesale/cost stripped)
 - **PII-scrubbed tool-call logging** for training, with an optional Supabase/Postgres sink
 - Host-agnostic — ships as a **Vercel** serverless function, a plain Node server, or a Docker container
 
@@ -577,7 +577,7 @@ cp .env.production.example .env.production
 docker compose -f docker-compose.yml -f docker-compose.prod.yml --profile auth up -d --build
 ```
 
-Auth is on (`AUTH_ENABLED=true`); do not set `HAIP_ALLOW_INSECURE`.
+Auth is on (`AUTH_ENABLED=true`); do not set `BAIA_ALLOW_INSECURE`.
 
 ### Local development
 
@@ -618,7 +618,7 @@ pnpm --filter @telivityhaip/booking dev             # booking widget dev server 
 
 > **Optional: request-first booking** — STR / coliving properties that need staff
 > approval before a reservation can enable `@telivityhaip/booking-requests`
-> (`pnpm db:migrate:booking-requests`, then `HAIP_BOOKING_REQUESTS=true`). See
+> (`pnpm db:migrate:booking-requests`, then `BAIA_BOOKING_REQUESTS=true`). See
 > [`packages/booking-requests/README.md`](./packages/booking-requests/README.md).
 
 ### Deploy to the cloud
@@ -784,7 +784,7 @@ POST   /api/v1/agents/:propertyId/train-all                    # Train every ena
 GET    /api/v1/agents/:propertyId/:agentType/decisions         # Decision history
 POST   /api/v1/agents/:propertyId/decisions/:id/approve        # Approve recommendation
 POST   /api/v1/agents/:propertyId/decisions/:id/reject         # Reject recommendation
-POST   /api/v1/agents/:propertyId/decisions/:id/explain        # HAIP AI grounded explanation
+POST   /api/v1/agents/:propertyId/decisions/:id/explain        # BAIA AI grounded explanation
 GET    /api/v1/agents/:propertyId/:agentType/performance       # Performance metrics
 POST   /api/v1/agents/:propertyId/reviews                      # Submit guest review
 GET    /api/v1/agents/:propertyId/reviews                      # List reviews (filter by status/source)
@@ -1090,10 +1090,10 @@ GET    /api/v1/connect/insights/housekeeping       # Housekeeping optimization
 
 ### How OTAIP Connects
 
-OTAIP's `packages/connect` will have a HAIP adapter (like `AmadeusAdapter`, `DuffelAdapter`). Lodging agents (Domain 4) connect to HAIP via this adapter. Both projects share TypeScript, pnpm, Vitest, and strict TS config.
+OTAIP's `packages/connect` will have a BAIA adapter (like `AmadeusAdapter`, `DuffelAdapter`). Lodging agents (Domain 4) connect to BAIA via this adapter. Both projects share TypeScript, pnpm, Vitest, and strict TS config.
 
 ```
-OTAIP Agent → ConnectAdapter (HAIP) → Connect API → HAIP PMS → PostgreSQL
+OTAIP Agent → ConnectAdapter (BAIA) → Connect API → BAIA PMS → PostgreSQL
 ```
 
 The PMS is the product. OTAIP agents are the intelligence on top.
@@ -1104,7 +1104,7 @@ The PMS is the product. OTAIP agents are the intelligence on top.
 
 ## WebSocket — Real-time Events
 
-HAIP uses Socket.IO for real-time event broadcasting to the dashboard and other connected clients.
+BAIA uses Socket.IO for real-time event broadcasting to the dashboard and other connected clients.
 
 ### Connection
 
@@ -1139,12 +1139,12 @@ All webhook events are simultaneously broadcast via WebSocket to clients subscri
 
 ## Security & Compliance (Built In, Not Bolted On)
 
-HAIP is multi-tenant by construction, and isolation is enforced **in depth** — at the request boundary *and* the data layer — so a bug in one place isn't a breach.
+BAIA is multi-tenant by construction, and isolation is enforced **in depth** — at the request boundary *and* the data layer — so a bug in one place isn't a breach.
 
-| Area | How HAIP Handles It |
+| Area | How BAIA Handles It |
 |------|-------------------|
 | **Tenant isolation** | `property_id` on every table. A global guard binds each authenticated request to the `propertyId` it targets (fail-closed), and every property-scoped query independently filters by `propertyId`. Caller-supplied foreign keys are verified to belong to the tenant before any write. |
-| **Authentication & authorization** | Keycloak OIDC (RS256 JWT) **plus** HAIP's own local users/roles/permissions; `@Roles` + `@RequirePermissions` guards on every endpoint. The Connect (agent) API uses per-property API credentials stored as hashes; inbound OTA webhooks are authenticated per connection (Basic-Auth / HMAC). |
+| **Authentication & authorization** | Keycloak OIDC (RS256 JWT) **plus** BAIA's own local users/roles/permissions; `@Roles` + `@RequirePermissions` guards on every endpoint. The Connect (agent) API uses per-property API credentials stored as hashes; inbound OTA webhooks are authenticated per connection (Basic-Auth / HMAC). |
 | **Input & transport hardening** | Strict DTO validation (incl. positive-amount checks on monetary fields and UUID-validated ids), an origin **CORS allowlist**, security response headers, **SSRF protection** on outbound webhooks, and rate limiting. The API **refuses to boot with insecure defaults in production** (auth off / mock payments) unless explicitly opted in for the demo. |
 | **PCI DSS** | Never stores raw card data. Stripe tokenization via PaymentIntents. Payments table stores token + last four + brand. |
 | **GDPR** | Audit trail (with actor) on every data modification, consent tracking fields, data retention and right-to-erasure APIs. |
@@ -1157,7 +1157,7 @@ HAIP is multi-tenant by construction, and isolation is enforced **in depth** —
 
 ## Integrations
 
-HAIP is **API-first**: the same REST surface that powers the dashboard is documented via auto-generated **OpenAPI 3.0** at `/docs`, state changes fan out through **HMAC-signed webhooks**, and external systems connect through **pluggable adapters** (channels, payments, messaging, accounting, and more).
+BAIA is **API-first**: the same REST surface that powers the dashboard is documented via auto-generated **OpenAPI 3.0** at `/docs`, state changes fan out through **HMAC-signed webhooks**, and external systems connect through **pluggable adapters** (channels, payments, messaging, accounting, and more).
 
 See **[`docs/INTEGRATIONS.md`](./docs/INTEGRATIONS.md)** for the full integration catalog (~230 integrations across 19 categories). To wire your stack, start with **[`docs/webhooks.md`](./docs/webhooks.md)** (signature verification, payloads, retries) and the recipes under **[`docs/integrations/`](./docs/integrations/)**. **Fiscalization and guest registration** are first-class categories — so properties can plug in invoice issuance and authority reporting without custom one-offs.
 
@@ -1177,7 +1177,7 @@ can track it. For everything else, Discord is the fastest way to reach us.
 
 ## Contributing
 
-HAIP is built in public and contributions are welcome.
+BAIA is built in public and contributions are welcome.
 
 ### The One Rule
 

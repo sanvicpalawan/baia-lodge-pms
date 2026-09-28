@@ -20,6 +20,6 @@ docker compose --profile channels up -d mock-derbysoft
    POST /api/v1/channels/connections/{id}/push-availability?propertyId={uuid}
    POST /api/v1/channels/connections/{id}/push-rates?propertyId={uuid}
    ```
-5. Pull a test reservation (or send inbound) and confirm it lands in HAIP.
+5. Pull a test reservation (or send inbound) and confirm it lands in BAIA.
 
 Docs: docs/channels/derbysoft.md

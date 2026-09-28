@@ -97,7 +97,7 @@ async function buildBookingRequestsModule(): Promise<DynamicModule> {
 
 /** Preload the optional booking-requests Nest module when the feature flag is on. */
 export async function preloadBookingRequestsModules(): Promise<void> {
-  if (process.env['HAIP_BOOKING_REQUESTS'] !== 'true') {
+  if (process.env['BAIA_BOOKING_REQUESTS'] !== 'true') {
     cachedModules = null;
     return;
   }
@@ -107,7 +107,7 @@ export async function preloadBookingRequestsModules(): Promise<void> {
 }
 
 export function bookingRequestsModules(): Array<Type | DynamicModule> {
-  if (process.env['HAIP_BOOKING_REQUESTS'] !== 'true') return [];
+  if (process.env['BAIA_BOOKING_REQUESTS'] !== 'true') return [];
   if (!cachedModules) {
     throw new Error(
       'Booking requests is enabled but modules were not preloaded — call preloadBookingRequestsModules() before bootstrapping Nest',

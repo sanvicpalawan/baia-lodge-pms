@@ -1,6 +1,6 @@
 # Desk ops vignettes
 
-Guest situation → staff role uses HAIP → delight or learn what blocked it.
+Guest situation → staff role uses BAIA → delight or learn what blocked it.
 
 Run these **after** [`../SURFACE_SMOKE.md`](../SURFACE_SMOKE.md). They do not replace it.
 

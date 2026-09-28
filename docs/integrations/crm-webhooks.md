@@ -1,6 +1,6 @@
 # CRM & marketing via Connect webhooks
 
-Wire guest lifecycle events into Mailchimp, HubSpot, Brevo, ActiveCampaign, Zendesk, Cendyn, Keap, or any CRM that accepts HTTP — **without** a HAIP-hosted OAuth connector.
+Wire guest lifecycle events into Mailchimp, HubSpot, Brevo, ActiveCampaign, Zendesk, Cendyn, Keap, or any CRM that accepts HTTP — **without** a BAIA-hosted OAuth connector.
 
 This recipe uses existing surfaces only:
 
@@ -37,10 +37,10 @@ POST /api/v1/connect/subscriptions
 }
 ```
 
-3. In your middleware (or n8n/Make), verify `X-HAIP-Signature`, then `GET` the entity by id via the staff/Connect API.
-4. Upsert the contact in the CRM using **that vendor’s** documented API (keys live only in your middleware — never in HAIP).
+3. In your middleware (or n8n/Make), verify `X-BAIA-Signature`, then `GET` the entity by id via the staff/Connect API.
+4. Upsert the contact in the CRM using **that vendor’s** documented API (keys live only in your middleware — never in BAIA).
 
-## What HAIP does not do
+## What BAIA does not do
 
 - No embedded Mailchimp/HubSpot/… OAuth apps in this recipe wave
 - No inventing vendor CRM field maps — map fields in your middleware against vendor docs

@@ -113,7 +113,7 @@ export class DerbySoftInboundController {
 
   /**
    * Live Check — real-time availability for a stay range.
-   * Returns product-level open/close based on HAIP AvailabilityService.
+   * Returns product-level open/close based on BAIA AvailabilityService.
    */
   @Post('availability')
   @ApiOperation({ summary: 'DerbySoft Live Check' })

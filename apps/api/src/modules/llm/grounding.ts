@@ -1,7 +1,7 @@
 /**
- * Anti‑hallucination guard for HAIP AI explanations.
+ * Anti‑hallucination guard for BAIA AI explanations.
  *
- * PRIMARY guarantee is structural, not here: HAIP AI never executes anything — it
+ * PRIMARY guarantee is structural, not here: BAIA AI never executes anything — it
  * only annotates a decision the deterministic agent already computed, and approval
  * runs the agent's own `execute()` on the agent's own recommendation. The model
  * cannot change what happens.

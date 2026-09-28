@@ -43,7 +43,7 @@ Country fiscalization and guest-registration console keys (Brazil excluded): [wa
 
 ## How to promote a `planned` row
 
-1. Complete vendor partner apply / sandbox signup outside HAIP.
+1. Complete vendor partner apply / sandbox signup outside BAIA.
 2. Implement the matching provider interface (or document a recipe on existing APIs).
 3. Flip registry seed `status` / `adapterKey` / `docsPath`, add `integrations/demos/<slug>/` (`demo.sh` + `GO_LIVE.md`), and update this page.
 

@@ -1,7 +1,7 @@
 /**
- * Single source of truth for the HAIP agent dependency graph.
+ * Single source of truth for the BAIA agent dependency graph.
  *
- * HAIP orchestrates HAIP agents (RManager + schedules/events).
+ * BAIA orchestrates BAIA agents (RManager + schedules/events).
  * OTAIP orchestrates OTAIP agents over the Connect API — do not embed
  * a second generic pipeline runtime here.
  */

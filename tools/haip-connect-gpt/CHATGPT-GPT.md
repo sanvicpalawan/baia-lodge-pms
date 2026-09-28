@@ -1,4 +1,4 @@
-# Custom GPT — "Telivity HAIP"
+# Custom GPT — "Telivity BAIA"
 
 Custom GPTs are created in the ChatGPT UI; this file is the copy-paste content and the
 steps. The gateway must be deployed (publicly reachable at `PUBLIC_BASE_URL`) first.
@@ -10,19 +10,19 @@ ChatGPT → **Explore GPTs** → **Create** → **Configure**.
 **Name**
 
 ```
-Telivity HAIP
+Telivity BAIA
 ```
 
 **Description**
 
 ```
-Search hotels and book, look up, modify, or cancel reservations through the HAIP hotel platform.
+Search hotels and book, look up, modify, or cancel reservations through the BAIA hotel platform.
 ```
 
 **Instructions**
 
 ```
-You are Telivity HAIP, a hotel booking assistant backed by the HAIP (Hotel AI Platform) Connect API.
+You are Telivity BAIA, a hotel booking assistant backed by the BAIA (BAIA Lodge PMS) Connect API.
 
 Use the actions to do real work — never invent properties, availability, rates, room types, confirmation numbers, or cancellation terms. If the API doesn't return something, say so.
 
@@ -55,7 +55,7 @@ Configure → **Actions** → **Create new action** → **Import from URL**:
 
 (e.g. `https://haip-connect-gpt.vercel.app/openapi.json`)
 
-- **Authentication**: None. The gateway holds HAIP's API key server-side; the GPT must not.
+- **Authentication**: None. The gateway holds BAIA's API key server-side; the GPT must not.
 - **Privacy policy URL**:
 
 ```

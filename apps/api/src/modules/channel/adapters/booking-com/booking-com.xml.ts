@@ -80,5 +80,5 @@ export function parseOtaXml(xmlString: string): {
  * Generate a unique echo token for request tracking.
  */
 function generateEchoToken(): string {
-  return `HAIP-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
+  return `BAIA-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
 }

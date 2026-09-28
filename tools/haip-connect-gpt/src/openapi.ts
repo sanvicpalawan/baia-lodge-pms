@@ -1,9 +1,9 @@
 /**
- * Builds the ChatGPT-importable OpenAPI 3.1 spec for the Telivity HAIP GPT.
+ * Builds the ChatGPT-importable OpenAPI 3.1 spec for the Telivity BAIA GPT.
  *
  * Hand-authored (not derived from NestJS Swagger) so the public AI surface stays
- * small, hotel-shaped, and decoupled from HAIP's internal endpoints. Request
- * schemas mirror HAIP's Connect DTOs exactly — no invented hotel fields. Response
+ * small, hotel-shaped, and decoupled from BAIA's internal endpoints. Request
+ * schemas mirror BAIA's Connect DTOs exactly — no invented hotel fields. Response
  * schemas describe selling-price fields only.
  */
 
@@ -77,9 +77,9 @@ export function buildOpenApiSpec(publicBaseUrl: string): Record<string, unknown>
   return {
     openapi: '3.1.0',
     info: {
-      title: 'Telivity HAIP — Hotel Booking',
+      title: 'Telivity BAIA — Hotel Booking',
       description:
-        'Search hotels, price rooms, and create, look up, modify, or cancel reservations through the HAIP (Hotel AI Platform) Connect API. All prices are guest-facing selling prices.',
+        'Search hotels, price rooms, and create, look up, modify, or cancel reservations through the BAIA (BAIA Lodge PMS) Connect API. All prices are guest-facing selling prices.',
       version: '1.0.0',
       contact: { name: 'Telivity', url: server },
     },

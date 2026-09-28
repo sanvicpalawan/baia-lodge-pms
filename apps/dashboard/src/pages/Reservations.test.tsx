@@ -20,7 +20,7 @@ import { api } from '../lib/api';
 
 const RES_ROW = {
   id: 'res-1',
-  confirmationNumber: 'HAIP-0001',
+  confirmationNumber: 'BAIA-0001',
   status: 'confirmed',
   arrivalDate: '2026-06-01',
   departureDate: '2026-06-04',

@@ -17,13 +17,13 @@ export function generateConfirmationNumber(
     token += CROCKFORD[byte & 0x1f];
     token += CROCKFORD[(byte >> 5) & 0x1f];
   }
-  return `HAIP-${token}`;
+  return `BAIA-${token}`;
 }
 
-/** Crockford base32 token without the HAIP- prefix (for channel/connect prefixes). */
+/** Crockford base32 token without the BAIA- prefix (for channel/connect prefixes). */
 export function generateConfirmationToken(
   entropy: ConfirmationEntropy = randomBytes,
 ): string {
   const confirmation = generateConfirmationNumber(entropy);
-  return confirmation.startsWith('HAIP-') ? confirmation.slice(5) : confirmation;
+  return confirmation.startsWith('BAIA-') ? confirmation.slice(5) : confirmation;
 }

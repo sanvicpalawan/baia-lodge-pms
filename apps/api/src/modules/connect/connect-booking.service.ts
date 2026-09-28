@@ -80,7 +80,7 @@ export class ConnectBookingService {
     // 5. Generate confirmation number. High-entropy (128 bits from randomBytes,
     // Crockford base32, no ambiguous chars) so it can't be enumerated/guessed —
     // the confirmation number is itself a bearer credential for the booking.
-    const confirmationNumber = `HAIP-${generateConfirmationToken()}`;
+    const confirmationNumber = `BAIA-${generateConfirmationToken()}`;
 
     // 6. Create booking
     const [booking] = await this.db

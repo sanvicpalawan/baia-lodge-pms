@@ -4,7 +4,7 @@ import { isPaymentGatewayMockMode } from '../../modules/payment/payment-gateway.
  * Refuse to boot an insecure configuration in production. The #1 real-world
  * breach risk is shipping with AUTH_ENABLED=false (or payment gateways in mock
  * mode) to a production host. The intentional public demo opts out with
- * HAIP_ALLOW_INSECURE=true.
+ * BAIA_ALLOW_INSECURE=true.
  *
  * Pure function over an env map so it's unit-testable; main.ts calls it with
  * process.env at startup.
@@ -16,7 +16,7 @@ export function assertSecureConfig(env: NodeJS.ProcessEnv = process.env): void {
   const nodeEnv = env['NODE_ENV'];
   const productionLike = nodeEnv === 'production' || nodeEnv === 'staging';
   if (!productionLike) return;
-  if (env['HAIP_ALLOW_INSECURE'] === 'true') return;
+  if (env['BAIA_ALLOW_INSECURE'] === 'true') return;
   const problems: string[] = [];
   if (env['AUTH_ENABLED'] === 'false') problems.push('AUTH_ENABLED=false');
   if (isPaymentGatewayMockMode(env)) {
@@ -25,7 +25,7 @@ export function assertSecureConfig(env: NodeJS.ProcessEnv = process.env): void {
   if (problems.length > 0) {
     throw new Error(
       `Refusing to start in production with insecure config: ${problems.join(', ')}. ` +
-        'Set real values, or set HAIP_ALLOW_INSECURE=true to override (e.g. for the public demo).',
+        'Set real values, or set BAIA_ALLOW_INSECURE=true to override (e.g. for the public demo).',
     );
   }
 }

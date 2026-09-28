@@ -91,7 +91,7 @@ export class TtlockLockProvider implements LockProvider {
       accessToken,
       lockId: this.lockId!,
       keyboardPwd: accessCode,
-      keyboardPwdName: `HAIP ${req.reservationId.slice(0, 8)}`,
+      keyboardPwdName: `BAIA ${req.reservationId.slice(0, 8)}`,
       startDate: String(startDate),
       endDate: String(endDate),
       addType: '2',

@@ -57,7 +57,7 @@ describe('BookingEngineScopeGuard', () => {
 
   it('DENIES a confirmationNumber resolving to a foreign tenant', async () => {
     db.select.mockReturnValue({ from: () => ({ where: () => Promise.resolve([{ propertyId: B }]) }) });
-    const req: any = { bookingEngine: { propertyId: A }, params: { confirmationNumber: 'HAIP-XYZ' } };
+    const req: any = { bookingEngine: { propertyId: A }, params: { confirmationNumber: 'BAIA-XYZ' } };
     await expect(guard.canActivate(ctx(req))).rejects.toBeInstanceOf(ForbiddenException);
   });
 
@@ -69,7 +69,7 @@ describe('BookingEngineScopeGuard', () => {
 
   it('allows a confirmationNumber resolving to the scoped tenant', async () => {
     db.select.mockReturnValue({ from: () => ({ where: () => Promise.resolve([{ propertyId: A }]) }) });
-    const req: any = { bookingEngine: { propertyId: A }, params: { confirmationNumber: 'HAIP-XYZ' } };
+    const req: any = { bookingEngine: { propertyId: A }, params: { confirmationNumber: 'BAIA-XYZ' } };
     await expect(guard.canActivate(ctx(req))).resolves.toBe(true);
   });
 });

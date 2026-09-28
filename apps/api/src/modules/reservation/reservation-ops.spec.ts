@@ -192,7 +192,7 @@ describe('ReservationService — list confirmationNumber', () => {
       roomNumber: '101',
       roomTypeName: 'Deluxe',
       ratePlanName: 'BAR',
-      confirmationNumber: 'HAIP-PARTY-001',
+      confirmationNumber: 'BAIA-PARTY-001',
     };
     const svc = await createService(createListDb([row]));
     const result = await svc.list({ propertyId: 'prop-001', limit: 20, page: 1 } as any);
@@ -201,7 +201,7 @@ describe('ReservationService — list confirmationNumber', () => {
     expect(result.data[0]).toMatchObject({
       id: 'res-001',
       bookingId: 'book-001',
-      confirmationNumber: 'HAIP-PARTY-001',
+      confirmationNumber: 'BAIA-PARTY-001',
       guestName: 'Ada Lovelace',
     });
   });

@@ -22,7 +22,7 @@ describe('DerbySoftInboundController', () => {
 
   beforeEach(() => {
     inboundReservationService = {
-      processInboundReservation: vi.fn().mockResolvedValue({ confirmationNumber: 'HAIP-99' }),
+      processInboundReservation: vi.fn().mockResolvedValue({ confirmationNumber: 'BAIA-99' }),
     };
     availabilityService = {
       searchAvailability: vi.fn().mockResolvedValue([
@@ -138,7 +138,7 @@ describe('DerbySoftInboundController', () => {
       res,
     );
     expect(res.statusCode).toBe(200);
-    expect(res.body.reservationIds.supplierResId).toBe('HAIP-99');
+    expect(res.body.reservationIds.supplierResId).toBe('BAIA-99');
     expect(inboundReservationService.processInboundReservation).toHaveBeenCalled();
     const mapped = inboundReservationService.processInboundReservation.mock.calls[0]![1];
     expect(mapped.rawPayload).not.toHaveProperty('payment');

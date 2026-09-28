@@ -1,14 +1,14 @@
-# HAIP — Claude Code Constitution
+# BAIA — Claude Code Constitution
 
 ## The One Rule
 
 **DO NOT INVENT HOTEL DOMAIN LOGIC.**
 
-All hotel domain knowledge comes from `kb/HAIP_KNOWLEDGE_BASE.md`. If something is ambiguous or missing, STOP and surface the question. Do not guess. Do not hallucinate hotel operations.
+All hotel domain knowledge comes from `kb/BAIA_KNOWLEDGE_BASE.md`. If something is ambiguous or missing, STOP and surface the question. Do not guess. Do not hallucinate hotel operations.
 
-## What Is HAIP
+## What Is BAIA
 
-HAIP (Hotel AI Platform) is an open-source, TypeScript/Node.js, API-first hotel PMS. Sister project to OTAIP. HAIP handles lodging. OTAIP handles air.
+BAIA (BAIA Lodge PMS) is an open-source, TypeScript/Node.js, API-first hotel PMS. Sister project to OTAIP. BAIA handles lodging. OTAIP handles air.
 
 Architecture: Option B — PMS is standalone, OTAIP agents connect via API (not embedded).
 

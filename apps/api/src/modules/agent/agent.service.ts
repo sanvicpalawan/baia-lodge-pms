@@ -33,7 +33,7 @@ export class AgentService {
   ) {}
 
   /**
-   * Generate (or return cached) HAIP AI explanation + suggestions for one decision.
+   * Generate (or return cached) BAIA AI explanation + suggestions for one decision.
    * Grounded: the model sees ONLY the decision's recommendation numbers. On-demand
    * so the model is invoked only for decisions a human actually reviews; the result
    * is cached on `agent_decisions.explanation`.
@@ -77,7 +77,7 @@ export class AgentService {
     // caching) a labelled hallucination. Caller falls back to the raw decision.
     if (!guarded.grounded) {
       this.logger.warn(
-        `HAIP AI rationale failed grounding for decision ${decisionId} — suppressed`,
+        `BAIA AI rationale failed grounding for decision ${decisionId} — suppressed`,
       );
       return { explanation: null, model: null, fromCache: false };
     }

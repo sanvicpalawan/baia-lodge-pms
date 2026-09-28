@@ -37,7 +37,7 @@ import type {
 
 /**
  * Stripe webhook handler for booking-request scoped payments.
- * Registered when HAIP_BOOKING_REQUESTS=true via BOOKING_REQUEST_STRIPE_HANDLER.
+ * Registered when BAIA_BOOKING_REQUESTS=true via BOOKING_REQUEST_STRIPE_HANDLER.
  */
 @Injectable()
 export class BookingRequestStripeHandler implements IBookingRequestStripeHandler {
@@ -505,7 +505,7 @@ export class BookingRequestStripeHandler implements IBookingRequestStripeHandler
       if (!linkedPayment) return;
       if (!linkedPayment.bookingRequestId) return;
       throw new ConflictException(
-        'Stripe refund is linked to a payment but missing exact HAIP correlation metadata',
+        'Stripe refund is linked to a payment but missing exact BAIA correlation metadata',
       );
     }
     if (ownership.ownership === 'owned-malformed') throw ownership.error;

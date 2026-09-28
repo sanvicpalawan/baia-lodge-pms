@@ -11,7 +11,7 @@ export interface PaymentResult {
 /**
  * Real Stripe card entry. Renders inside <Elements> (see Payment.tsx). On submit
  * it creates a PaymentMethod client-side and returns its id as `paymentToken`.
- * Card data never touches HAIP servers (PCI DSS).
+ * Card data never touches BAIA servers (PCI DSS).
  */
 export function StripeCard({
   onPaid,

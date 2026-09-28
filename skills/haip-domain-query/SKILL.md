@@ -1,9 +1,9 @@
 ---
 name: haip-domain-query
-description: Query the HAIP knowledge base for hotel PMS domain knowledge. Use whenever you need hotel operations facts, PMS architecture patterns, integration standards, compliance requirements, or competitive analysis. Trigger on any hotel domain question — check the KB before asking Dušan or inventing answers.
+description: Query the BAIA knowledge base for hotel PMS domain knowledge. Use whenever you need hotel operations facts, PMS architecture patterns, integration standards, compliance requirements, or competitive analysis. Trigger on any hotel domain question — check the KB before asking Dušan or inventing answers.
 ---
 
-# HAIP Domain Query
+# BAIA Domain Query
 
 ## When to Use
 - Any question about hotel operations (reservations, folios, housekeeping, night audit, rates, check-in/out)
@@ -14,7 +14,7 @@ description: Query the HAIP knowledge base for hotel PMS domain knowledge. Use w
 
 ## How to Use
 
-1. Read `kb/HAIP_KNOWLEDGE_BASE.md` — 8 parts covering the entire domain
+1. Read `kb/BAIA_KNOWLEDGE_BASE.md` — 8 parts covering the entire domain
 2. If the answer isn't there, check `kb/research/` for raw research outputs
 3. If still not found, launch a research agent to find the answer from authoritative sources
 4. NEVER invent hotel domain logic. If you can't find it, surface the question.

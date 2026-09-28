@@ -15,7 +15,7 @@ import { properties } from './property.js';
 /**
  * Local authorization model — "local authz + Keycloak login".
  *
- * HAIP owns users / roles / permissions locally (property-scoped, custom roles,
+ * BAIA owns users / roles / permissions locally (property-scoped, custom roles,
  * per-feature permissions). Keycloak remains the OPTIONAL authenticator: when
  * AUTH_ENABLED=true it issues the JWT and `users.keycloakSub` links the local
  * user to the Keycloak subject (a LATER integration — nullable for now). When

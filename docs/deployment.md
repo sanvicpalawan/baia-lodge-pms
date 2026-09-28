@@ -1,13 +1,13 @@
-# HAIP Production Deployment
+# BAIA Production Deployment
 
-This guide covers self-hosting HAIP with authentication enabled and secure defaults.
+This guide covers self-hosting BAIA with authentication enabled and secure defaults.
 For the zero-config local demo, see [Quick Start](../README.md#quick-start) in the README.
 
 ## Compose files
 
 | File | Purpose |
 |------|---------|
-| [`docker-compose.yml`](../docker-compose.yml) | Default **demo** stack — auth off, `STRIPE_MODE=mock`, `HAIP_ALLOW_INSECURE=true` |
+| [`docker-compose.yml`](../docker-compose.yml) | Default **demo** stack — auth off, `STRIPE_MODE=mock`, `BAIA_ALLOW_INSECURE=true` |
 | [`docker-compose.auth.yml`](../docker-compose.auth.yml) | Optional overlay — explore Keycloak login with `--profile auth` |
 | [`docker-compose.prod.yml`](../docker-compose.prod.yml) | **Production** overlay — `AUTH_ENABLED=true`, no insecure flag, `STRIPE_MODE=test` |
 
@@ -48,7 +48,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml --profile auth u
 
 Services: **postgres**, **redis**, **keycloak** (`--profile auth`), **init** (migrate + seed), **api**.
 
-The API refuses to boot in `NODE_ENV=production` when `AUTH_ENABLED=false` or `STRIPE_MODE=mock`, unless `HAIP_ALLOW_INSECURE=true` (demo only — never set in production).
+The API refuses to boot in `NODE_ENV=production` when `AUTH_ENABLED=false` or `STRIPE_MODE=mock`, unless `BAIA_ALLOW_INSECURE=true` (demo only — never set in production).
 
 Validate compose config before deploying:
 
@@ -188,14 +188,14 @@ Alternatively, skip building on the VPS and pull the GHCR image, then run compos
 
 ## Cloud deployment options
 
-These are sketches for running the **published GHCR image** (or the production compose overlay) on common platforms. HAIP expects Postgres, Redis, and (for auth-on) Keycloak — use managed addons where the platform provides them.
+These are sketches for running the **published GHCR image** (or the production compose overlay) on common platforms. BAIA expects Postgres, Redis, and (for auth-on) Keycloak — use managed addons where the platform provides them.
 
 ### Render
 
 | Mode | What to use |
 |------|-------------|
-| **Demo** (auth off) | One-click [`render.yaml`](../render.yaml) blueprint from the README — intentionally insecure for try-out only (`HAIP_ALLOW_INSECURE=true`). |
-| **Production** | Do **not** use the demo blueprint as-is. Create a **Web Service** from `ghcr.io/telivityai/haip-api:<tag>` (or Dockerfile), attach **managed Postgres** + **Redis**, set `AUTH_ENABLED=true`, `NODE_ENV=production`, real Stripe keys, `CONNECT_API_KEY`, and `CORS_ORIGINS`. Run Keycloak as a separate private service (or external IdP) and never set `HAIP_ALLOW_INSECURE`. Run migrate via a one-off job (`node packages/database/dist/push-schema.js`) before switching traffic. |
+| **Demo** (auth off) | One-click [`render.yaml`](../render.yaml) blueprint from the README — intentionally insecure for try-out only (`BAIA_ALLOW_INSECURE=true`). |
+| **Production** | Do **not** use the demo blueprint as-is. Create a **Web Service** from `ghcr.io/telivityai/haip-api:<tag>` (or Dockerfile), attach **managed Postgres** + **Redis**, set `AUTH_ENABLED=true`, `NODE_ENV=production`, real Stripe keys, `CONNECT_API_KEY`, and `CORS_ORIGINS`. Run Keycloak as a separate private service (or external IdP) and never set `BAIA_ALLOW_INSECURE`. Run migrate via a one-off job (`node packages/database/dist/push-schema.js`) before switching traffic. |
 
 ### Railway
 

@@ -168,9 +168,9 @@ describe('WebhookDeliveryService', () => {
 
     const body = init.body as string;
     const expectedSig = `sha256=${createHmac('sha256', subscription.secret).update(body).digest('hex')}`;
-    expect(init.headers['X-HAIP-Signature']).toBe(expectedSig);
-    expect(init.headers['X-HAIP-Event-Id']).toBe(delivery.id);
-    expect(init.headers['X-HAIP-Event-Type']).toBe('reservation.created');
+    expect(init.headers['X-BAIA-Signature']).toBe(expectedSig);
+    expect(init.headers['X-BAIA-Event-Id']).toBe(delivery.id);
+    expect(init.headers['X-BAIA-Event-Type']).toBe('reservation.created');
     expect(init.headers['Content-Type']).toBe('application/json');
 
     // Row should be marked delivered.
@@ -212,7 +212,7 @@ describe('WebhookDeliveryService', () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(fetchMock.mock.calls.map((call) =>
-      call[1].headers['X-HAIP-Event-Id'])).toEqual([
+      call[1].headers['X-BAIA-Event-Id'])).toEqual([
       logicalEventId,
       logicalEventId,
     ]);
@@ -377,6 +377,6 @@ describe('WebhookDeliveryService', () => {
     await service.processDeliveryJob({ deliveryId: delivery.id, propertyId: 'prop-1' });
 
     const [, init] = fetchMock.mock.calls[0]!;
-    expect(init.headers['X-HAIP-Signature']).toBe('unsigned');
+    expect(init.headers['X-BAIA-Signature']).toBe('unsigned');
   });
 });

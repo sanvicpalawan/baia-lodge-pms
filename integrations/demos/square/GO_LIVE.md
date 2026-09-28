@@ -17,6 +17,6 @@ Toggle ON. Without keys the gateway uses mock/console (no real charges).
    ```
 3. Re-run `./integrations/demos/run.sh square` (keeps toggle ON).
 4. Take a **test payment** from the folio / booking flow; confirm a real PSP id in the payment ledger.
-5. Configure webhooks (Stripe/Adyen/…) to your HAIP public URL when the PSP requires them.
+5. Configure webhooks (Stripe/Adyen/…) to your BAIA public URL when the PSP requires them.
 
 Docs: docs/integrations/payments-adyen-mollie-square-braintree.md

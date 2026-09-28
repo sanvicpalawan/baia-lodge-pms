@@ -31,7 +31,7 @@ describe('assertSecureConfig', () => {
 
   it('allows the explicit insecure opt-in (public demo)', () => {
     expect(() =>
-      assertSecureConfig({ NODE_ENV: 'production', AUTH_ENABLED: 'false', STRIPE_MODE: 'mock', HAIP_ALLOW_INSECURE: 'true' } as any),
+      assertSecureConfig({ NODE_ENV: 'production', AUTH_ENABLED: 'false', STRIPE_MODE: 'mock', BAIA_ALLOW_INSECURE: 'true' } as any),
     ).not.toThrow();
   });
 

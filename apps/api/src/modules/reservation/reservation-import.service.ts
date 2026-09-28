@@ -190,7 +190,7 @@ export class ReservationImportService {
       const mapped = await this.legacyIdMap.lookup(propertyId, projectId, entity, legacyId);
       if (mapped) return mapped;
       throw new BadRequestException(
-        `No HAIP id mapped for ${label} legacy id "${legacyId}" in project ${projectId}`,
+        `No BAIA id mapped for ${label} legacy id "${legacyId}" in project ${projectId}`,
       );
     }
     throw new BadRequestException(`Either ${label} id or ${legacyField} is required`);

@@ -348,8 +348,8 @@ describe('BookingEngineService.book', () => {
       channelCode: 'booking_engine',
       totalAmount: '220.00', // server-computed, not client-supplied
     });
-    expect(opts.confirmationNumber).toMatch(/^HAIP-/);
-    expect(res.confirmationNumber).toMatch(/^HAIP-/);
+    expect(opts.confirmationNumber).toMatch(/^BAIA-/);
+    expect(res.confirmationNumber).toMatch(/^BAIA-/);
   });
 
   it('leaves the reservation pending when autoConfirm is off', async () => {

@@ -10,7 +10,7 @@
  * never sends a propertyId.
  */
 
-export const DEMO_BOOKING_KEY = 'pk_live_HAIPDEMO0000000000000000';
+export const DEMO_BOOKING_KEY = 'pk_live_BAIADEMO0000000000000000';
 
 export function resolveBookingKey(mountEl?: Element | null): string {
   // 1. URL query param

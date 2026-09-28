@@ -1494,7 +1494,7 @@
       ],
       "docs": "docs/integrations/frankfurter-ecb-fx.md",
       "smoke": "registry_enable",
-      "note": "External Frankfurter/ECB rates recipe \u2014 convert outside HAIP.",
+      "note": "External Frankfurter/ECB rates recipe \u2014 convert outside BAIA.",
       "maturity": "recipe"
     }
   ]

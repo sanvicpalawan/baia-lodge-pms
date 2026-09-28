@@ -5,7 +5,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   define: {
-    'import.meta.env.VITE_HAIP_BOOKING_REQUESTS': JSON.stringify(process.env.VITE_HAIP_BOOKING_REQUESTS ?? 'true'),
+    'import.meta.env.VITE_BAIA_BOOKING_REQUESTS': JSON.stringify(process.env.VITE_BAIA_BOOKING_REQUESTS ?? 'true'),
   },
   test: {
     environment: 'jsdom',

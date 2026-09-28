@@ -56,7 +56,7 @@ export function collapseDateRanges<T extends { date: string }>(
 }
 
 /**
- * HAIP availability → DerbySoft Update Inventory payloads (one per roomId).
+ * BAIA availability → DerbySoft Update Inventory payloads (one per roomId).
  * ChannelAdapter.pushAvailability maps to PC inventory (availableInvCount).
  */
 export function mapAvailabilityToInventory(
@@ -93,7 +93,7 @@ export function mapAvailabilityToInventory(
 }
 
 /**
- * HAIP rates → DerbySoft Update Rate payloads (one per roomId×rateId).
+ * BAIA rates → DerbySoft Update Rate payloads (one per roomId×rateId).
  */
 export function mapRatesToDerbySoft(
   hotelId: string,
@@ -158,7 +158,7 @@ export function mapRatesToDerbySoft(
 }
 
 /**
- * HAIP restrictions → DerbySoft Update Availability (product-level) payloads.
+ * BAIA restrictions → DerbySoft Update Availability (product-level) payloads.
  */
 export function mapRestrictionsToAvailability(
   hotelId: string,
@@ -210,7 +210,7 @@ export function mapRestrictionsToAvailability(
   return payloads;
 }
 
-/** Profile Update Hotel body from HAIP property content. */
+/** Profile Update Hotel body from BAIA property content. */
 export function mapPropertyToHotelUpdate(
   hotelId: string,
   property: ContentPushParams['property'],
@@ -245,7 +245,7 @@ export function mapRoomTypesToUpdates(
 }
 
 /**
- * Map DerbySoft Book/Modify JSON → HAIP ChannelReservation.
+ * Map DerbySoft Book/Modify JSON → BAIA ChannelReservation.
  * PCI: payment card fields are stripped and never copied into rawPayload.
  */
 export function mapDerbySoftReservationToHaip(

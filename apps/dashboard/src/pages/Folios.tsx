@@ -585,7 +585,7 @@ function FolioDetail() {
 
   /**
    * Card pre-auth (KB 14.1). Stripe path tokenizes in-browser (pm_xxx only
-   * reaches HAIP). Redsys path returns a hosted-checkout nextAction to POST.
+   * reaches BAIA). Redsys path returns a hosted-checkout nextAction to POST.
    */
   const authorizeMutation = useMutation({
     mutationFn: (pm: { id: string; card?: { last4: string; brand: string } }) => {

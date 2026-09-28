@@ -27,7 +27,7 @@ describe('ConnectBookingService — modify cross-tenant FK ownership', () => {
     //   3) my new roomTypes FK check → empty
     let i = 0;
     const seq: any[][] = [
-      [{ id: 'b-1', propertyId: A, confirmationNumber: 'HAIP-1' }],
+      [{ id: 'b-1', propertyId: A, confirmationNumber: 'BAIA-1' }],
       [{ id: 'r-1', bookingId: 'b-1', roomTypeId: 'rt-1', ratePlanId: 'rp-1', arrivalDate: '2026-07-01', departureDate: '2026-07-03', totalAmount: '100.00' }],
       [],
     ];
@@ -53,7 +53,7 @@ describe('ConnectBookingService — modify cross-tenant FK ownership', () => {
     const svc = mod.get(ConnectBookingService);
 
     await expect(
-      svc.modify('HAIP-1', { roomTypeId: 'foreign-rt' } as any),
+      svc.modify('BAIA-1', { roomTypeId: 'foreign-rt' } as any),
     ).rejects.toBeInstanceOf(BadRequestException);
     expect(db.update).not.toHaveBeenCalled();
   });

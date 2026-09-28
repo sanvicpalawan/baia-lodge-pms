@@ -683,7 +683,7 @@ export async function pushSchema(databaseUrl: string = DATABASE_URL) {
       explanation jsonb,
       created_at timestamptz NOT NULL DEFAULT now()
     )`,
-    // HAIP AI explanation column (idempotent for DBs predating this column)
+    // BAIA AI explanation column (idempotent for DBs predating this column)
     `ALTER TABLE agent_decisions ADD COLUMN IF NOT EXISTS explanation jsonb`,
     // agent_training_snapshots
     `CREATE TABLE IF NOT EXISTS agent_training_snapshots (

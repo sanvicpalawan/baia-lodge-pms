@@ -1,9 +1,9 @@
 ---
 name: haip-research
-description: Research hotel PMS domain knowledge from authoritative sources. Use whenever the KB has gaps, a domain question comes up that can't be answered from existing knowledge, or when competitive intelligence needs updating. Trigger on "research this", "what does the industry say about", "find out how hotels handle", or any domain question not covered in HAIP_KNOWLEDGE_BASE.md.
+description: Research hotel PMS domain knowledge from authoritative sources. Use whenever the KB has gaps, a domain question comes up that can't be answered from existing knowledge, or when competitive intelligence needs updating. Trigger on "research this", "what does the industry say about", "find out how hotels handle", or any domain question not covered in BAIA_KNOWLEDGE_BASE.md.
 ---
 
-# HAIP Research Protocol
+# BAIA Research Protocol
 
 ## When to Use
 - KB doesn't have the answer to a domain question
@@ -24,10 +24,10 @@ description: Research hotel PMS domain knowledge from authoritative sources. Use
 Every research output must include:
 - Clear factual answer with data/percentages where available
 - Source URLs (not paraphrased — actual links)
-- Recommendation for HAIP (MVP priority, post-MVP, or not needed)
+- Recommendation for BAIA (MVP priority, post-MVP, or not needed)
 - Flag anything that contradicts existing KB content
 
 ## After Research
-1. Update `kb/HAIP_KNOWLEDGE_BASE.md` with new findings
+1. Update `kb/BAIA_KNOWLEDGE_BASE.md` with new findings
 2. Save raw research to `kb/research/` with descriptive filename
-3. If research changes a build decision, update `HAIP_BUILD_PLAN.md`
+3. If research changes a build decision, update `BAIA_BUILD_PLAN.md`

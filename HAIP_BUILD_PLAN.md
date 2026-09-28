@@ -1,4 +1,4 @@
-# HAIP — Roadmap
+# BAIA — Roadmap
 
 Open-source, API-first hotel PMS (Apache 2.0).
 
@@ -9,7 +9,7 @@ Open-source, API-first hotel PMS (Apache 2.0).
 - Groups, cashiering, house accounts, accounting, tax
 - Channel distribution + commission-free direct booking engine
 - Multi-property, RBAC, audit logging
-- **HAIP AI** — optional local model (Ollama) that explains the deterministic
+- **BAIA AI** — optional local model (Ollama) that explains the deterministic
   agents' decisions in plain language, grounded so it can't invent figures.
   Runs on your own hardware, off by default.
 - Upsells & ancillaries — [#174](https://github.com/telivityai/haip/pull/174) (services catalog, packages, booking/front-desk/pre-arrival channels)

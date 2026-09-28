@@ -1,6 +1,6 @@
 # Google & TripAdvisor review pull
 
-Light adapters to **pull** public reviews into HAIP for the review-response agent. Manual review entry via `POST /api/v1/agents/:propertyId/reviews` remains unchanged.
+Light adapters to **pull** public reviews into BAIA for the review-response agent. Manual review entry via `POST /api/v1/agents/:propertyId/reviews` remains unchanged.
 
 Catalog names: **Google Business Profile Reviews**, **TripAdvisor Content API**.
 

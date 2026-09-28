@@ -1,6 +1,6 @@
 # API conventions (staff REST)
 
-Integrator notes for HAIP’s staff API (`/api/v1/*`). Live field contracts remain in OpenAPI at `/docs`. This page documents shapes and asymmetries that cost failed dry-runs when they are only discoverable by trial and error (see [#321](https://github.com/TelivityAI/haip/issues/321)).
+Integrator notes for BAIA’s staff API (`/api/v1/*`). Live field contracts remain in OpenAPI at `/docs`. This page documents shapes and asymmetries that cost failed dry-runs when they are only discoverable by trial and error (see [#321](https://github.com/TelivityAI/haip/issues/321)).
 
 Connect API (`/api/v1/connect/*`) is a separate surface (bearer confirmation / API key) and is not covered here.
 

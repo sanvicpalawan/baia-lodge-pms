@@ -47,7 +47,7 @@ async function build(row: any, explain: any) {
   return { svc: moduleRef.get(AgentService), db, llm };
 }
 
-describe('AgentService.explainDecision (HAIP AI)', () => {
+describe('AgentService.explainDecision (BAIA AI)', () => {
   it('returns a null explanation and does NOT cache when the model is off/unavailable', async () => {
     const explain = vi.fn().mockResolvedValue(null);
     const { svc, db } = await build(decisionRow(), explain);

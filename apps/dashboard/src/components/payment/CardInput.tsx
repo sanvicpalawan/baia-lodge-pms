@@ -6,7 +6,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
  *
  * Renders a secure card input field powered by Stripe.js.
  * On submit, creates a PaymentMethod and returns the pm_xxx ID.
- * Card data NEVER touches HAIP servers (PCI DSS compliant).
+ * Card data NEVER touches BAIA servers (PCI DSS compliant).
  *
  * Usage:
  * ```tsx

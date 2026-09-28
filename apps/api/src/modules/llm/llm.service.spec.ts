@@ -17,10 +17,10 @@ describe('LlmService', () => {
 
   beforeEach(() => {
     vi.restoreAllMocks();
-    delete process.env['HAIP_AI_ENABLED'];
+    delete process.env['BAIA_AI_ENABLED'];
     delete process.env['OLLAMA_BASE_URL'];
-    delete process.env['HAIP_AI_MODEL'];
-    delete process.env['HAIP_AI_TIMEOUT_MS'];
+    delete process.env['BAIA_AI_MODEL'];
+    delete process.env['BAIA_AI_TIMEOUT_MS'];
   });
 
   afterEach(() => {
@@ -36,7 +36,7 @@ describe('LlmService', () => {
   });
 
   it('returns a parsed grounded explanation when enabled', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -58,13 +58,13 @@ describe('LlmService', () => {
   });
 
   it('falls back to null on a non-OK response', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({ ok: false, status: 500 } as any);
     expect(await makeService().explain(INPUT)).toBeNull();
   });
 
   it('falls back to null when the model returns unparseable output', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,
       json: async () => ({ message: { content: 'sorry, I cannot do that' } }),
@@ -73,14 +73,14 @@ describe('LlmService', () => {
   });
 
   it('falls back to null (never throws) when the model is unreachable', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockRejectedValue(new Error('ECONNREFUSED'));
     await expect(makeService().explain(INPUT)).resolves.toBeNull();
   });
 
   it('aborts and returns null when the model hangs past the timeout', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
-    process.env['HAIP_AI_TIMEOUT_MS'] = '5';
+    process.env['BAIA_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_TIMEOUT_MS'] = '5';
     // Never resolves on its own — only rejects (AbortError) when the signal fires.
     vi.spyOn(globalThis, 'fetch' as any).mockImplementation(
       (_url: string, opts: any) =>
@@ -96,7 +96,7 @@ describe('LlmService', () => {
   });
 
   it('falls back to null when the response body is oversized (Content-Length)', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     const jsonSpy = vi.fn();
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,
@@ -108,7 +108,7 @@ describe('LlmService', () => {
   });
 
   it('extracts JSON even when wrapped in stray prose', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -121,7 +121,7 @@ describe('LlmService', () => {
   });
 
   it('rejects payloads whose rationale is not a string', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -132,7 +132,7 @@ describe('LlmService', () => {
   });
 
   it('caps an overlong rationale', async () => {
-    process.env['HAIP_AI_ENABLED'] = 'true';
+    process.env['BAIA_AI_ENABLED'] = 'true';
     const long = 'x'.repeat(900);
     vi.spyOn(globalThis, 'fetch' as any).mockResolvedValue({
       ok: true,

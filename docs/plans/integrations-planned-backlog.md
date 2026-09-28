@@ -12,7 +12,7 @@ Usable rows already on `main` are documented in [wave3-partner-surface.md](../in
 ## Grounding rules (non-negotiable)
 
 1. **Do not invent vendor or government API contracts.** If partner docs / KB are missing, STOP and ask.
-2. Every property-scoped table/query filters `propertyId` (HAIP multi-tenancy).
+2. Every property-scoped table/query filters `propertyId` (BAIA multi-tenancy).
 3. Status honesty: `shipped` only for real HTTP-capable paths; `adapter` for console handoffs; `recipe` for docs on existing REST/webhooks/CSV/SQL; leave `planned` until one of those is true.
 4. Every promoted row needs: registry flip (`status` / `adapterKey` / `docsPath`) + `integrations/demos/<slug>/` (`demo.sh` + `GO_LIVE.md` + README) + manifest entry.
 5. One PR per coherent slice (category or small cluster). Cut branches from current `main` with **only that slice’s commits** (repo branch freeze on `main` only — force-push on `cursor/*` is OK).
@@ -94,7 +94,7 @@ Adjust order if a commercial partner unlocks credentials earlier.
 
 ### Upsells & Ancillaries (12)
 
-**Approach:** Partner APIs; attach to stay-extras / folio patterns already in HAIP where they exist; console only without contracts.
+**Approach:** Partner APIs; attach to stay-extras / folio patterns already in BAIA where they exist; console only without contracts.
 
 | Slug | Name | Notes |
 |------|------|-------|
@@ -190,7 +190,7 @@ Adjust order if a commercial partner unlocks credentials earlier.
 
 | Slug | Name | Notes |
 |------|------|-------|
-| `ifttt-partner-app` | IFTTT Partner App listing | IFTTT partner applet/service listing for trigger-action workflows connected to HAIP events. |
+| `ifttt-partner-app` | IFTTT Partner App listing | IFTTT partner applet/service listing for trigger-action workflows connected to BAIA events. |
 | `make-partner-app` | Make Partner App listing | Official Make.com partner app listing and certified modules beyond generic HTTP webhooks. |
 | `zapier-partner-app` | Zapier Partner App listing | Official Zapier partner app listing and certified triggers/actions beyond generic webhook catch. |
 

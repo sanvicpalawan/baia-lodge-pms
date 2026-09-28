@@ -8,9 +8,9 @@
  *    fields (location, dates, occupancy, room/rate ids, rate types, result counts).
  *
  *  - stripNetRate()  — removes any wholesale/net/cost-basis fields from upstream
- *    responses before they reach ChatGPT. HAIP's Connect API already returns
+ *    responses before they reach ChatGPT. BAIA's Connect API already returns
  *    selling prices only, so this is defense-in-depth: it enforces the OTAIP rule
- *    ("the GPT sees the selling price only") even if a future HAIP change starts
+ *    ("the GPT sees the selling price only") even if a future BAIA change starts
  *    returning a net field.
  */
 

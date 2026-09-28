@@ -1,6 +1,6 @@
 # Infobip, Vonage Messages, and Telegram guest messaging
 
-HAIP outbound guest SMS uses a pluggable **SmsProvider** adapter (Twilio reference + console fallback). Wave 2 adds **Infobip** and **Vonage Messages** (SMS channel), plus **Telegram Bot** for chat-based guest notifications.
+BAIA outbound guest SMS uses a pluggable **SmsProvider** adapter (Twilio reference + console fallback). Wave 2 adds **Infobip** and **Vonage Messages** (SMS channel), plus **Telegram Bot** for chat-based guest notifications.
 
 WhatsApp remains on the existing Twilio adapter — see [WhatsApp channel notes](../channels/whatsapp.md).
 
@@ -12,7 +12,7 @@ Set on the API container (see [`.env.example`](../../.env.example)):
 
 | Variable | Values | Notes |
 |----------|--------|--------|
-| `SMS_PROVIDER` | `twilio`, `infobip`, `vonage`, `console` | When unset, HAIP auto-picks the first configured vendor in order: twilio → infobip → vonage → console |
+| `SMS_PROVIDER` | `twilio`, `infobip`, `vonage`, `console` | When unset, BAIA auto-picks the first configured vendor in order: twilio → infobip → vonage → console |
 | `TELEGRAM_PROVIDER` | `telegram`, `console` | Default `telegram` when unset; falls back to console if `TELEGRAM_BOT_TOKEN` is missing |
 
 **Examples**
@@ -34,7 +34,7 @@ TELEGRAM_BOT_TOKEN=123456:ABC...
 TELEGRAM_PROVIDER=telegram
 ```
 
-When credentials for a selected vendor are missing, HAIP falls back to the **console** adapter (message logged, `sent: false`).
+When credentials for a selected vendor are missing, BAIA falls back to the **console** adapter (message logged, `sent: false`).
 
 ## API endpoints
 

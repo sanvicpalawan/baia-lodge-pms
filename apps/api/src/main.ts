@@ -64,7 +64,7 @@ async function bootstrap() {
 
   // OpenAPI / Swagger
   const config = new DocumentBuilder()
-    .setTitle('HAIP — Hotel AI Platform')
+    .setTitle('BAIA — BAIA Lodge PMS')
     .setDescription(
       'Open-source, API-first hotel Property Management System. ' +
       'Part of Telivity\'s open-source travel infrastructure.',
@@ -98,7 +98,7 @@ async function bootstrap() {
   const port = process.env['PORT'] ?? 3000;
   await app.listen(port);
 
-  console.log(`HAIP API running on http://localhost:${port}`);
+  console.log(`BAIA API running on http://localhost:${port}`);
   if (serveDocs) console.log(`OpenAPI docs at http://localhost:${port}/docs`);
 }
 

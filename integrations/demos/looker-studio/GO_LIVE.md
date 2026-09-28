@@ -5,7 +5,7 @@
 ./integrations/demos/run.sh looker-studio
 ```
 
-Recipe mode: enables the catalog row and points at existing HAIP surfaces. No Nest vendor client.
+Recipe mode: enables the catalog row and points at existing BAIA surfaces. No Nest vendor client.
 
 ## Live
 1. Read-only Postgres role for BI tool

@@ -1,14 +1,14 @@
 /**
  * Flag-OFF default-install release gate.
  *
- * Verifies the deployment default (HAIP_BOOKING_REQUESTS unset/false) still
+ * Verifies the deployment default (BAIA_BOOKING_REQUESTS unset/false) still
  * works end to end when the optional booking-requests package is never
  * touched: only core migrations run, AppModule boots without the
  * booking-requests Nest module, `booking_requests` and friends do not exist
  * in the schema, and the pre-existing instant-booking + deposit/refund path
  * (the only path a default install has) keeps working. Mirrors the instant
  * half of booking-request-default-flow-regression.spec.ts, but that spec
- * always sets HAIP_BOOKING_REQUESTS=true — it never exercises what most
+ * always sets BAIA_BOOKING_REQUESTS=true — it never exercises what most
  * production installs actually run.
  */
 import { randomBytes, randomUUID } from 'node:crypto';
@@ -95,10 +95,10 @@ describeDatabase('Booking engine flag-OFF default-install release gate', () => {
   let instant: Fixture;
 
   beforeAll(async () => {
-    // The point of this suite: HAIP_BOOKING_REQUESTS is deliberately left
+    // The point of this suite: BAIA_BOOKING_REQUESTS is deliberately left
     // unset, matching a default install/clone that never opted into the
     // optional package.
-    vi.stubEnv('HAIP_BOOKING_REQUESTS', '');
+    vi.stubEnv('BAIA_BOOKING_REQUESTS', '');
     vi.stubEnv('AUTH_ENABLED', 'false');
     vi.stubEnv('NODE_ENV', 'test');
     vi.stubEnv('PAYMENT_GATEWAY', 'mock');
@@ -179,7 +179,7 @@ describeDatabase('Booking engine flag-OFF default-install release gate', () => {
       { bookingMode: 'request' },
       undefined,
       { userId: null, userEmail: null, ipAddress: null },
-    )).rejects.toThrow(/HAIP_BOOKING_REQUESTS/);
+    )).rejects.toThrow(/BAIA_BOOKING_REQUESTS/);
   });
 
   it('keeps instant booking, deposit capture, and partial/full refunds working with only core migrations applied', async () => {

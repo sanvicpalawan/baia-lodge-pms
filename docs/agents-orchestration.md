@@ -1,6 +1,6 @@
-# HAIP agent orchestration
+# BAIA agent orchestration
 
-HAIP hosts orchestration for its own agents. There is no generic pipeline engine.
+BAIA hosts orchestration for its own agents. There is no generic pipeline engine.
 
 ## Layers
 
@@ -8,7 +8,7 @@ HAIP hosts orchestration for its own agents. There is no generic pipeline engine
 |-------|------|
 | **12 specialists** | Deterministic / calibrated agents (`demand_forecast`, `pricing`, `overbooking`, `channel_mix`, `group_pickup`, `night_audit`, `housekeeping`, `cancellation`, `guest_comms`, `review_response`, `ar_collections`, `deposit_risk`) |
 | **RManager** (`revenue_manager`) | In-product revenue orchestrator: runs demand → levers → one strategy |
-| **OTAIP** | External multi-agent orchestration (air + lodging). Talks to HAIP only via **Connect API** (`/api/v1/connect/*`). Option B: PMS stays standalone |
+| **OTAIP** | External multi-agent orchestration (air + lodging). Talks to BAIA only via **Connect API** (`/api/v1/connect/*`). Option B: PMS stays standalone |
 
 ## Revenue data flow
 
@@ -20,11 +20,11 @@ Source of truth in code: [`apps/api/src/modules/agent/agent-graph.ts`](../apps/a
 
 Ops and guest/commercial agents run on their own schedules or events — they are not RManager levers.
 
-## Boundary: HAIP vs OTAIP
+## Boundary: BAIA vs OTAIP
 
-- **HAIP** schedules and orchestrates HAIP agents (RManager + external cron + event listeners).
-- **OTAIP** orchestrates OTAIP agents; lodging traffic enters HAIP through Connect credentials.
-- HAIP does not import OTAIP orchestrator types or embed an OTAIP runtime.
+- **BAIA** schedules and orchestrates BAIA agents (RManager + external cron + event listeners).
+- **OTAIP** orchestrates OTAIP agents; lodging traffic enters BAIA through Connect credentials.
+- BAIA does not import OTAIP orchestrator types or embed an OTAIP runtime.
 
 ## Schedules
 

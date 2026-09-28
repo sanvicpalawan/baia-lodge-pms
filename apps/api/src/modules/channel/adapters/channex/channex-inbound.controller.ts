@@ -19,7 +19,7 @@ import { ReviewsIngestService } from '../../../reviews/reviews-ingest.service';
  *   event_mask: booking (bookings) or review (reviews)
  *   headers: { "X-Channex-Webhook-Secret": "<shared-secret>" }
  *   send_data: true  (preferred) — payload includes revision/booking attributes
- *   send_data: false — notification only; HAIP pulls booking_revisions/feed
+ *   send_data: false — notification only; BAIA pulls booking_revisions/feed
  *
  * Auth: shared secret via `X-Channex-Webhook-Secret` matched to
  * `connection.config.inboundAuth.secret` for the property-routed connection.

@@ -60,8 +60,8 @@ export const migrationRowStatusEnum = pgEnum('migration_row_status', [
 ]);
 
 /**
- * Maps legacy PMS identifiers to HAIP UUIDs within a migration project.
- * Enables reservation import (and other steps) without callers knowing HAIP ids.
+ * Maps legacy PMS identifiers to BAIA UUIDs within a migration project.
+ * Enables reservation import (and other steps) without callers knowing BAIA ids.
  */
 export const migrationLegacyIdMap = pgTable(
   'migration_legacy_id_map',

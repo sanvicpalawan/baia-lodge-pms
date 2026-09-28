@@ -1,23 +1,23 @@
-# HAIP Connect GPT gateway
+# BAIA Connect GPT gateway
 
-A thin, standalone gateway that exposes HAIP hotel search and booking as a **ChatGPT
+A thin, standalone gateway that exposes BAIA hotel search and booking as a **ChatGPT
 Custom GPT Action**. It mirrors the OTAIP/Ligare pattern: wrap a domain engine, expose
 it to ChatGPT as tools via an OpenAPI spec, host a tiny backend, and log every tool call
 for training.
 
-HAIP's "domain engine" is its already-built **Connect API** (`/api/v1/connect/*`). This
+BAIA's "domain engine" is its already-built **Connect API** (`/api/v1/connect/*`). This
 gateway is a typed HTTP client over it — it does **not** reimplement hotel logic.
 
 ```
-ChatGPT  ──HTTPS──▶  this gateway  ──x-api-key──▶  HAIP Connect API (/api/v1/connect/*)
+ChatGPT  ──HTTPS──▶  this gateway  ──x-api-key──▶  BAIA Connect API (/api/v1/connect/*)
                          │
                          └──▶ Supabase (haip_tool_calls)   # PII-scrubbed tool-call log
 ```
 
 ## Why a separate service
 
-- The gateway holds HAIP's `x-api-key` and injects it server-side — **the GPT never sees it**.
-- The public AI surface (6 hotel operations) stays decoupled from HAIP's internal API.
+- The gateway holds BAIA's `x-api-key` and injects it server-side — **the GPT never sees it**.
+- The public AI surface (6 hotel operations) stays decoupled from BAIA's internal API.
 - Responses are guarded so **only selling prices** ever reach the GPT (no net/wholesale/cost).
 
 ## Pieces
@@ -49,12 +49,12 @@ Plus `GET /openapi.json`, `GET /health`, `GET /privacy`, `GET /`.
 
 ```bash
 cd tools/haip-connect-gpt
-cp .env.example .env        # fill in HAIP_CONNECT_API_KEY and (optionally) Supabase keys
+cp .env.example .env        # fill in BAIA_CONNECT_API_KEY and (optionally) Supabase keys
 npm install
 npm run dev                 # tsx watch
 ```
 
-Point `HAIP_API_BASE_URL` at a running HAIP API (e.g. `http://localhost:3000` after
+Point `BAIA_API_BASE_URL` at a running BAIA API (e.g. `http://localhost:3000` after
 `pnpm --filter @telivityhaip/api dev` and seeding). Then:
 
 ```bash
@@ -78,8 +78,8 @@ This package deploys to Vercel as a single serverless function. `vercel.json` ru
 build and rewrites all routes to `api/index.ts`, which forwards into the same Fastify app.
 Set these environment variables on the Vercel project:
 
-- `HAIP_API_BASE_URL` — your public HAIP API URL
-- `HAIP_CONNECT_API_KEY` — matches HAIP's `CONNECT_API_KEY`
+- `BAIA_API_BASE_URL` — your public BAIA API URL
+- `BAIA_CONNECT_API_KEY` — matches BAIA's `CONNECT_API_KEY`
 - `PUBLIC_BASE_URL` — optional; the production domain for the OpenAPI server URL
   (auto-derived from the Vercel deployment domain if unset)
 - `TOOL_LOG_DATABASE_URL` — haip-demo Postgres connection string (logging; optional)

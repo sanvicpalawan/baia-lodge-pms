@@ -109,7 +109,7 @@ const HELP: HelpEntry[] = [
     summary: 'AI agents for pricing, demand, overbooking, and related recommendations.',
     bullets: [
       'Review pending decisions before approving autopilot actions.',
-      'HAIP AI explanations annotate numeric recommendations; they do not change inventory themselves.',
+      'BAIA AI explanations annotate numeric recommendations; they do not change inventory themselves.',
     ],
   },
   {

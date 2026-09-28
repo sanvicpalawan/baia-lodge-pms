@@ -4,7 +4,7 @@ import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
  * Per-connection inbound authentication (closes CRITICAL #3 from the security audit).
  *
  * Each `channelConnections.config.inboundAuth` carries the credentials a specific
- * OTA must present when pushing into HAIP:
+ * OTA must present when pushing into BAIA:
  *
  *   { username: '...', password: '...' }                  // Basic Auth (Booking.com)
  *   { secret: '...' }                                     // HMAC-SHA256 (Expedia & similar)

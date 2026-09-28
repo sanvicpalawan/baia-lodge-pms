@@ -1,5 +1,5 @@
 /**
- * HAIP Demo Seed — "Telivity Grand Hotel"
+ * BAIA Demo Seed — "Telivity Grand Hotel"
  *
  * Creates a fully-populated demo property with enough data to exercise every
  * dashboard screen.  Idempotent: uses property code 'TGH' as the anchor and
@@ -26,7 +26,7 @@ import { postgresOptionsFromEnv } from './postgres-options.js';
  * and CI can drive the booking engine without a generation step. Only its sha256
  * hash is stored. Real deployments generate their own keys in the dashboard.
  */
-const DEMO_BOOKING_KEY = 'pk_live_HAIPDEMO0000000000000000';
+const DEMO_BOOKING_KEY = 'pk_live_BAIADEMO0000000000000000';
 
 const DATABASE_URL =
   process.env['DATABASE_URL'] ?? 'postgresql://haip:haip@localhost:5432/haip';
@@ -93,7 +93,7 @@ async function main() {
     id: propertyId,
     name: 'Telivity Grand Hotel',
     code: PROPERTY_CODE,
-    description: 'A luxury demo property for the HAIP platform.',
+    description: 'A luxury demo property for the BAIA platform.',
     addressLine1: '100 Ocean Drive',
     city: 'Miami Beach',
     stateProvince: 'FL',

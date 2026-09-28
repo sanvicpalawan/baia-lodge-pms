@@ -60,7 +60,7 @@ describe('mapMediaToBookingPhotos', () => {
 });
 
 describe('mapRoomTypeToBookingRoom', () => {
-  it('maps HAIP room type fields to the Rooms API shape', () => {
+  it('maps BAIA room type fields to the Rooms API shape', () => {
     const room = mapRoomTypeToBookingRoom({
       channelRoomCode: 'SGL_KING',
       name: 'Standard King',

@@ -440,7 +440,7 @@ function BookingEngineSettingsForProperty({ propertyId }: { propertyId: string }
                 <label htmlFor="booking-mode" className="block text-xs font-medium text-telivity-slate mb-1">{t('bookingEngine.requestSettings.bookingMode')}</label>
                 <select id="booking-mode" value={form.bookingMode} onChange={(event) => updateForm((current) => ({ ...current, bookingMode: event.target.value as BookingMode }))} className="w-full border border-telivity-slate rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-telivity-deep-blue focus-visible:ring-2 focus-visible:ring-telivity-deep-blue">
                   <option value="instant">{t('bookingEngine.requestSettings.modes.instant')}</option>
-                  {/* Request mode requires the API to run with HAIP_BOOKING_REQUESTS=true
+                  {/* Request mode requires the API to run with BAIA_BOOKING_REQUESTS=true
                       (see booking-engine-config.service.ts). Hidden unless this build opted
                       in, or the property is already configured for it (opaque preservation,
                       matching the unsupported-question pattern above). */}

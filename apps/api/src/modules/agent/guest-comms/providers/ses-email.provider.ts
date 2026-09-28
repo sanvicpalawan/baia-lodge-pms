@@ -49,7 +49,7 @@ export class SesEmailProvider implements EmailProvider {
         Simple: {
           Subject: { Data: message.subject },
           ...(message.messageId
-            ? { Headers: [{ Name: 'X-HAIP-Message-ID', Value: message.messageId }] }
+            ? { Headers: [{ Name: 'X-BAIA-Message-ID', Value: message.messageId }] }
             : {}),
           Body: {
             Text: { Data: message.text },
@@ -69,7 +69,7 @@ export class SesEmailProvider implements EmailProvider {
             'Content-Type': 'application/json',
             'X-SES-Region': this.region,
             ...(message.idempotencyKey
-              ? { 'X-HAIP-Idempotency-Key': message.idempotencyKey }
+              ? { 'X-BAIA-Idempotency-Key': message.idempotencyKey }
               : {}),
           },
           body: JSON.stringify(payload),

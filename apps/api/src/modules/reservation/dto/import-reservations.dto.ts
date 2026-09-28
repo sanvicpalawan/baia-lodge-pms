@@ -19,7 +19,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
  * One reservation row to import. Mirrors the fields ReservationService.create
  * needs (minus propertyId, which is supplied once at the endpoint level).
  *
- * Either HAIP UUIDs or legacy PMS ids (resolved via migration_legacy_id_map
+ * Either BAIA UUIDs or legacy PMS ids (resolved via migration_legacy_id_map
  * when projectId is supplied) may be provided for guest, room type, and rate plan.
  */
 export class CreateReservationRow {

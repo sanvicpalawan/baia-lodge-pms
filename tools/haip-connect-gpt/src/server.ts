@@ -7,15 +7,15 @@ import { HaipConnectAdapter } from './haip-connect-adapter.js';
 import { buildApp } from './app.js';
 import { isLoggingEnabled } from './events.js';
 
-const baseUrl = process.env['HAIP_API_BASE_URL'];
-const apiKey = process.env['HAIP_CONNECT_API_KEY'];
+const baseUrl = process.env['BAIA_API_BASE_URL'];
+const apiKey = process.env['BAIA_CONNECT_API_KEY'];
 
 if (!baseUrl) {
-  console.error('FATAL: HAIP_API_BASE_URL is required.');
+  console.error('FATAL: BAIA_API_BASE_URL is required.');
   process.exit(1);
 }
 if (!apiKey) {
-  console.error('FATAL: HAIP_CONNECT_API_KEY is required.');
+  console.error('FATAL: BAIA_CONNECT_API_KEY is required.');
   process.exit(1);
 }
 
@@ -32,8 +32,8 @@ const app = buildApp({
 app
   .listen({ port, host: '0.0.0.0' })
   .then(() => {
-    app.log.info(`HAIP Connect GPT gateway on :${port}`);
-    app.log.info(`  upstream HAIP : ${baseUrl}`);
+    app.log.info(`BAIA Connect GPT gateway on :${port}`);
+    app.log.info(`  upstream BAIA : ${baseUrl}`);
     app.log.info(`  public URL    : ${publicBaseUrl}`);
     app.log.info(`  OpenAPI       : ${publicBaseUrl}/openapi.json`);
     app.log.info(`  tool logging  : ${isLoggingEnabled() ? 'enabled' : 'disabled'}`);

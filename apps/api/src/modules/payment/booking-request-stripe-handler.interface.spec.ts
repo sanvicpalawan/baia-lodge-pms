@@ -9,13 +9,13 @@ describe('booking-request stripe handler helpers', () => {
     expect(paymentHasBookingRequestId({} as any)).toBe(false);
   });
 
-  it('reads HAIP_BOOKING_REQUESTS flag', () => {
-    const previous = process.env['HAIP_BOOKING_REQUESTS'];
-    process.env['HAIP_BOOKING_REQUESTS'] = 'true';
+  it('reads BAIA_BOOKING_REQUESTS flag', () => {
+    const previous = process.env['BAIA_BOOKING_REQUESTS'];
+    process.env['BAIA_BOOKING_REQUESTS'] = 'true';
     expect(isBookingRequestsEnabled()).toBe(true);
-    process.env['HAIP_BOOKING_REQUESTS'] = 'false';
+    process.env['BAIA_BOOKING_REQUESTS'] = 'false';
     expect(isBookingRequestsEnabled()).toBe(false);
-    if (previous === undefined) delete process.env['HAIP_BOOKING_REQUESTS'];
-    else process.env['HAIP_BOOKING_REQUESTS'] = previous;
+    if (previous === undefined) delete process.env['BAIA_BOOKING_REQUESTS'];
+    else process.env['BAIA_BOOKING_REQUESTS'] = previous;
   });
 });

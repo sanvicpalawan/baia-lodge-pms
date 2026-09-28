@@ -1,10 +1,10 @@
-# Tenant isolation gate (self-hosted HAIP)
+# Tenant isolation gate (self-hosted BAIA)
 
 Run before enabling real hotel tenants. Uses two Keycloak users / properties.
 
 ## Prerequisites
 
-- HAIP API with `AUTH_ENABLED=true`
+- BAIA API with `AUTH_ENABLED=true`
 - Two Keycloak users whose JWTs include:
   - User A: `property_ids=[PROPERTY_A]`, roles include staff or `admin`
   - User B: `property_ids=[PROPERTY_B]`
@@ -12,7 +12,7 @@ Run before enabling real hotel tenants. Uses two Keycloak users / properties.
 
 | Variable | Meaning |
 |----------|---------|
-| `HAIP_API_BASE` | API base ending in `/api` (e.g. `http://localhost:3000/api`) |
+| `BAIA_API_BASE` | API base ending in `/api` (e.g. `http://localhost:3000/api`) |
 | `TOKEN_A` / `TOKEN_B` | Bearer JWTs for users A and B |
 | `PROPERTY_A` / `PROPERTY_B` | Property UUIDs |
 | `RESERVATION_IN_B` | Optional — reservation id that belongs only to B |

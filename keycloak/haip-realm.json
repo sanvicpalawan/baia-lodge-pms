@@ -32,7 +32,7 @@
   "clients": [
     {
       "clientId": "haip-api",
-      "name": "HAIP API",
+      "name": "BAIA API",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": false,
@@ -46,7 +46,7 @@
     },
     {
       "clientId": "haip-dashboard",
-      "name": "HAIP Dashboard",
+      "name": "BAIA Dashboard",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": true,

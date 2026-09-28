@@ -260,7 +260,7 @@ export class BookingEngineConfigService {
 
       // Fail-safe: request mode has no controllers/services/UI to serve it
       // unless the deployment opted into the optional booking-requests
-      // package (HAIP_BOOKING_REQUESTS=true). Without this gate, a property
+      // package (BAIA_BOOKING_REQUESTS=true). Without this gate, a property
       // could persist bookingMode=request while the module is unloaded, and
       // BookingEngineService.book() would reject every instant booking with
       // no request-mode path to replace it. The check uses the *effective*
@@ -274,7 +274,7 @@ export class BookingEngineConfigService {
       // pre-configured at any time.
       if (bookingMode === 'request' && !isBookingRequestsEnabled()) {
         throw new BadRequestException(
-          'Request booking mode requires the HAIP_BOOKING_REQUESTS deployment flag to be enabled',
+          'Request booking mode requires the BAIA_BOOKING_REQUESTS deployment flag to be enabled',
         );
       }
 

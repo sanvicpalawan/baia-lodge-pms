@@ -1,6 +1,6 @@
 # Production go-live checklist
 
-Use this before exposing HAIP to real guests or chargeable traffic.
+Use this before exposing BAIA to real guests or chargeable traffic.
 Details: [`docs/deployment.md`](../../docs/deployment.md) and
 [`.env.production.example`](../../.env.production.example).
 
@@ -12,7 +12,7 @@ Details: [`docs/deployment.md`](../../docs/deployment.md) and
   docker compose -f docker-compose.yml -f docker-compose.prod.yml --profile auth up -d --build
   ```
 - [ ] `AUTH_ENABLED=true` (required in production)
-- [ ] `HAIP_ALLOW_INSECURE` is **unset / empty** (never `true` in production)
+- [ ] `BAIA_ALLOW_INSECURE` is **unset / empty** (never `true` in production)
 - [ ] `STRIPE_MODE` is `test` until ready for real charges; then `live` with live keys
 - [ ] API boots cleanly; `GET /api/v1/health` returns `status: ok`
 

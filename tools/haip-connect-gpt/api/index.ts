@@ -15,10 +15,10 @@ import { buildApp } from '../dist/app.js';
 // Serverless boots leniently: a config-less first deploy must still serve
 // /openapi.json, /privacy, and /health so the ChatGPT Action can be wired up
 // (Stage A). Action routes will simply return an upstream error until
-// HAIP_API_BASE_URL points at a reachable HAIP API (Stage B). The long-running
+// BAIA_API_BASE_URL points at a reachable BAIA API (Stage B). The long-running
 // server (server.ts) stays strict and fails loudly on missing config.
-const baseUrl = process.env['HAIP_API_BASE_URL'] ?? 'https://haip-not-configured.invalid';
-const apiKey = process.env['HAIP_CONNECT_API_KEY'] ?? 'unconfigured';
+const baseUrl = process.env['BAIA_API_BASE_URL'] ?? 'https://haip-not-configured.invalid';
+const apiKey = process.env['BAIA_CONNECT_API_KEY'] ?? 'unconfigured';
 
 // Prefer an explicit PUBLIC_BASE_URL; otherwise fall back to the Vercel-provided
 // production/deployment domain so the OpenAPI `servers[0].url` is correct.

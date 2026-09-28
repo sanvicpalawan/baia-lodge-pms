@@ -99,7 +99,7 @@ export const bookingEngineConfig = pgTable('booking_engine_config', {
   // config hooks: core reads them directly for the request-mode fail-safe
   // gate (see `BookingEngineConfigService.updateConfig` — rejects
   // `bookingMode='request'` when the optional `@telivityhaip/booking-requests`
-  // package is not wired in via `HAIP_BOOKING_REQUESTS`) even when that
+  // package is not wired in via `BAIA_BOOKING_REQUESTS`) even when that
   // package is absent. They stay declared in core Drizzle/push-schema; the
   // booking-requests package reuses this same table rather than declaring its
   // own copy of these columns.

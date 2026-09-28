@@ -1,12 +1,12 @@
 # Beds24 & Channex channel managers
 
-Connect HAIP to **Beds24** or **Channex** as the channel manager that pushes OTAs while HAIP remains the PMS of record.
+Connect BAIA to **Beds24** or **Channex** as the channel manager that pushes OTAs while BAIA remains the PMS of record.
 
 See the **[integration catalog](../INTEGRATIONS.md)** (Channel Managers) for where these fit in the roadmap.
 
 ## Prerequisites
 
-- A HAIP property with room types and rate plans mapped to channel codes (`channelRoomCode`, `channelRateCode`).
+- A BAIA property with room types and rate plans mapped to channel codes (`channelRoomCode`, `channelRateCode`).
 - A channel connection using adapter type `beds24` or `channex`.
 - Vendor credentials (API key / property keys) stored on the connection `config` JSON or in server env vars.
 
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 ### ARI push
 
-HAIP pushes availability and rates via Beds24 **setRoomDates** when you call:
+BAIA pushes availability and rates via Beds24 **setRoomDates** when you call:
 
 - `POST /api/v1/channels/connections/{id}/push-availability?propertyId={uuid}`
 - `POST /api/v1/channels/connections/{id}/push-rates?propertyId={uuid}`
@@ -48,7 +48,7 @@ Room type mappings must use the Beds24 **roomId** as `channelRoomCode`.
 
 ### Booking import
 
-Poll Beds24 bookings into HAIP:
+Poll Beds24 bookings into BAIA:
 
 ```http
 POST /api/v1/channels/connections/{id}/pull-reservations?propertyId={uuid}
@@ -85,7 +85,7 @@ Content-Type: application/json
 }
 ```
 
-Map HAIP room types to Channex **room_type_id** and rate plans to **rate_plan_id**.
+Map BAIA room types to Channex **room_type_id** and rate plans to **rate_plan_id**.
 
 ### ARI push
 
@@ -94,7 +94,7 @@ Map HAIP room types to Channex **room_type_id** and rate plans to **rate_plan_id
 - Consecutive identical days are collapsed to `date_from` / `date_to`
 - Responses capture Channex **task ids** in sync logs (`response.taskIds`) for certification
 
-Same HAIP push endpoints as other channel adapters (`push/availability`, `push/rates`, `push/restrictions`, `push/full`). Rate/restriction saves and reservation create/modify/cancel also trigger delta pushes automatically.
+Same BAIA push endpoints as other channel adapters (`push/availability`, `push/rates`, `push/restrictions`, `push/full`). Rate/restriction saves and reservation create/modify/cancel also trigger delta pushes automatically.
 
 ### Booking feed + webhook
 
@@ -108,7 +108,7 @@ Or register a Channex webhook to:
 
 `POST /api/v1/channels/inbound/channex/bookings`
 
-HAIP persists the reservation, then ACKs **`booking_revisions/{revisionId}/ack`** (revision id, not booking id).
+BAIA persists the reservation, then ACKs **`booking_revisions/{revisionId}/ack`** (revision id, not booking id).
 
 Console mode applies when `apiKey` or `propertyId` is absent.
 

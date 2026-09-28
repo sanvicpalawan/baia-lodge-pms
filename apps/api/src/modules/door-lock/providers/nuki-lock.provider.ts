@@ -43,7 +43,7 @@ export class NukiLockProvider implements LockProvider {
     const accessCode = generateKeypadPin();
     const allowedFromDate = req.validFrom ?? new Date().toISOString();
     const body: Record<string, unknown> = {
-      name: `HAIP ${req.reservationId.slice(0, 8)}`,
+      name: `BAIA ${req.reservationId.slice(0, 8)}`,
       type: 13,
       code: Number(accessCode),
       allowedFromDate,

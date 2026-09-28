@@ -30,7 +30,7 @@ describe('ConnectBookingService', () => {
           returning: vi.fn().mockImplementation(() => {
             insertCallCount++;
             if (insertCallCount === 1) return Promise.resolve([{ id: 'guest-1', firstName: 'John', lastName: 'Smith' }]); // guest
-            if (insertCallCount === 2) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'HAIP-TEST' }]); // booking
+            if (insertCallCount === 2) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'BAIA-TEST' }]); // booking
             if (insertCallCount === 3) return Promise.resolve([{ id: 'res-1', bookingId: 'booking-1', status: 'confirmed' }]); // reservation
             return Promise.resolve([{ id: 'new-item' }]);
           }),
@@ -143,7 +143,7 @@ describe('ConnectBookingService', () => {
         values: vi.fn().mockReturnValue({
           returning: vi.fn().mockImplementation(() => {
             insertCount++;
-            if (insertCount === 1) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'HAIP-X' }]);
+            if (insertCount === 1) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'BAIA-X' }]);
             if (insertCount === 2) return Promise.resolve([{ id: 'res-1', status: 'confirmed' }]);
             return Promise.resolve([{}]);
           }),
@@ -189,7 +189,7 @@ describe('ConnectBookingService', () => {
           returning: vi.fn().mockImplementation(() => {
             insertCount++;
             if (insertCount === 1) return Promise.resolve([{ id: 'guest-new', firstName: 'John', lastName: 'Smith' }]);
-            if (insertCount === 2) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'HAIP-X' }]);
+            if (insertCount === 2) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'BAIA-X' }]);
             if (insertCount === 3) return Promise.resolve([{ id: 'res-1', status: 'confirmed' }]);
             return Promise.resolve([{}]);
           }),
@@ -324,7 +324,7 @@ describe('ConnectBookingService', () => {
         from: vi.fn().mockReturnValue({
           where: vi.fn().mockImplementation(() => {
             selectCallCount++;
-            if (selectCallCount === 1) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'HAIP-123' }]);
+            if (selectCallCount === 1) return Promise.resolve([{ id: 'booking-1', confirmationNumber: 'BAIA-123' }]);
             if (selectCallCount === 2) return Promise.resolve([{
               id: 'res-1', bookingId: 'booking-1', guestId: 'guest-1', roomTypeId: 'rt-1',
               status: 'confirmed', arrivalDate: '2024-06-01', departureDate: '2024-06-03',
@@ -339,10 +339,10 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.verify('HAIP-123');
+      const result = await service.verify('BAIA-123');
 
       expect(result.status).toBe('confirmed');
-      expect(result.confirmationNumber).toBe('HAIP-123');
+      expect(result.confirmationNumber).toBe('BAIA-123');
       expect(result.guestName).toBe('John Smith');
       expect(result.roomType).toBe('Standard King');
       expect(result.roomAssigned).toBe(false);
@@ -371,7 +371,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.verify('HAIP-123');
+      const result = await service.verify('BAIA-123');
 
       expect(result.roomAssigned).toBe(true);
       expect(result.roomNumber).toBe('101');
@@ -406,7 +406,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.modify('HAIP-123', {
+      const result = await service.modify('BAIA-123', {
         specialRequests: 'High floor please',
       });
 
@@ -432,7 +432,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.modify('HAIP-123', {
+      const result = await service.modify('BAIA-123', {
         checkIn: '2024-06-01',
         checkOut: '2024-06-04', // Extended by 1 night
       });
@@ -470,7 +470,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.modify('HAIP-123', { guestFirstName: 'Johnny' });
+      const result = await service.modify('BAIA-123', { guestFirstName: 'Johnny' });
 
       expect(result.success).toBe(true);
       // A shared guest must NOT be overwritten in place — a property-local copy is forked.
@@ -500,7 +500,7 @@ describe('ConnectBookingService', () => {
         values: vi.fn().mockReturnValue({ returning: vi.fn().mockImplementation(() => { insertCount++; return Promise.resolve([{ id: 'x' }]); }) }),
       }));
 
-      const result = await service.modify('HAIP-123', { guestFirstName: 'Johnny' });
+      const result = await service.modify('BAIA-123', { guestFirstName: 'Johnny' });
 
       expect(result.success).toBe(true);
       expect(insertCount).toBe(0); // updated in place, no fork
@@ -521,7 +521,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      await expect(service.modify('HAIP-123', { adults: 3 })).rejects.toThrow(BadRequestException);
+      await expect(service.modify('BAIA-123', { adults: 3 })).rejects.toThrow(BadRequestException);
     });
   });
 
@@ -547,7 +547,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      const result = await service.cancel('HAIP-123', 'Changed plans');
+      const result = await service.cancel('BAIA-123', 'Changed plans');
 
       expect(result.cancelled).toBe(true);
       expect(result.penaltyApplied).toBe(false);
@@ -567,7 +567,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      await expect(service.cancel('HAIP-123')).rejects.toThrow(BadRequestException);
+      await expect(service.cancel('BAIA-123')).rejects.toThrow(BadRequestException);
     });
 
     it('should emit connect.booking_cancelled webhook', async () => {
@@ -591,7 +591,7 @@ describe('ConnectBookingService', () => {
         }),
       }));
 
-      await service.cancel('HAIP-123', 'Test');
+      await service.cancel('BAIA-123', 'Test');
 
       expect(mockWebhookService.emit).toHaveBeenCalledWith(
         'connect.booking_cancelled',

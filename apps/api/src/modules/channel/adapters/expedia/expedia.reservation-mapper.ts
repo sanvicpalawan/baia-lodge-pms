@@ -1,7 +1,7 @@
 import type { ChannelReservation } from '../../channel-adapter.interface';
 
 /**
- * Map an Expedia Booking Notification payload → HAIP ChannelReservation[].
+ * Map an Expedia Booking Notification payload → BAIA ChannelReservation[].
  *
  * Expedia delivers new bookings/modifications/cancellations by PUSH (Booking
  * Notification API), not polling. The legacy Booking Retrieval/Confirmation EQC

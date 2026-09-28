@@ -1,5 +1,5 @@
 /**
- * TEL-74 adversarial coverage for the HAIP migration engine:
+ * TEL-74 adversarial coverage for the BAIA migration engine:
  * resume mid-failure, double-run / completed skip, tenant isolation, scale dry-run.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';

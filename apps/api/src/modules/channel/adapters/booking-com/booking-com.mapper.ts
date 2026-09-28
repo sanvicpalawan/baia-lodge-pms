@@ -6,7 +6,7 @@ import type {
 } from '../../channel-adapter.interface';
 
 /**
- * Map HAIP availability items → OTA_HotelAvailNotif XML payload.
+ * Map BAIA availability items → OTA_HotelAvailNotif XML payload.
  */
 export function mapAvailabilityToOta(
   hotelId: string,
@@ -41,7 +41,7 @@ export function mapAvailabilityToOta(
 }
 
 /**
- * Map HAIP rate items → OTA_HotelRateAmountNotif XML payload.
+ * Map BAIA rate items → OTA_HotelRateAmountNotif XML payload.
  */
 export function mapRatesToOta(
   hotelId: string,
@@ -76,7 +76,7 @@ export function mapRatesToOta(
 }
 
 /**
- * Map HAIP restriction items → OTA_HotelRateAmountNotif restrictions payload.
+ * Map BAIA restriction items → OTA_HotelRateAmountNotif restrictions payload.
  */
 export function mapRestrictionsToOta(
   hotelId: string,
@@ -111,7 +111,7 @@ export function mapRestrictionsToOta(
 }
 
 /**
- * Parse OTA_HotelResNotif XML data → array of HAIP ChannelReservation objects.
+ * Parse OTA_HotelResNotif XML data → array of BAIA ChannelReservation objects.
  */
 export function mapOtaReservationToHaip(
   data: Record<string, unknown>,
@@ -123,7 +123,7 @@ export function mapOtaReservationToHaip(
   for (const hotelRes of hotelReservations) {
     const resStatus = (hotelRes as any)['@_ResStatus'] ?? 'Commit';
 
-    // Map Booking.com status to HAIP status
+    // Map Booking.com status to BAIA status
     let status: ChannelReservation['status'] = 'new';
     if (resStatus === 'Cancel') status = 'cancelled';
     else if (resStatus === 'Modify') status = 'modified';

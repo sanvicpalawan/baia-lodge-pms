@@ -33,4 +33,4 @@ These are **not** free marketplace logos. They are paid/gated hardware-cert rout
 | San Marino tourist tax remittance | Tax remittance workflow |
 | Ecuador SIETE establishment-only | Establishment reporting |
 
-HAIP may expose product workflows to **generate and store** these artifacts on the folio/reservation; it does **not** claim free automated filing to authorities. Wire via property settings + audit when a market goes live.
+BAIA may expose product workflows to **generate and store** these artifacts on the folio/reservation; it does **not** claim free automated filing to authorities. Wire via property settings + audit when a market goes live.

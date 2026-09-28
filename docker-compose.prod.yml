@@ -19,8 +19,8 @@ services:
         VITE_KEYCLOAK_URL: http://localhost:8080
         VITE_KEYCLOAK_REALM: haip
         VITE_KEYCLOAK_CLIENT_ID: haip-dashboard
-        # Must match the api service's HAIP_BOOKING_REQUESTS below.
-        VITE_HAIP_BOOKING_REQUESTS: 'false'
+        # Must match the api service's BAIA_BOOKING_REQUESTS below.
+        VITE_BAIA_BOOKING_REQUESTS: 'false'
     env_file:
       - .env.production
     environment:
@@ -30,7 +30,7 @@ services:
       SERVE_BOOKING: 'true'
       STRIPE_MODE: test
       # Override demo-only opt-out; must not be 'true' in production.
-      HAIP_ALLOW_INSECURE: ''
+      BAIA_ALLOW_INSECURE: ''
       KEYCLOAK_URL: http://keycloak:8080
       DATABASE_URL: postgresql://haip:haip@postgres:5432/haip
       REDIS_URL: redis://redis:6379
@@ -53,7 +53,7 @@ services:
         VITE_KEYCLOAK_URL: http://localhost:8080
         VITE_KEYCLOAK_REALM: haip
         VITE_KEYCLOAK_CLIENT_ID: haip-dashboard
-        VITE_HAIP_BOOKING_REQUESTS: 'false'
+        VITE_BAIA_BOOKING_REQUESTS: 'false'
     env_file:
       - .env.production
     environment:

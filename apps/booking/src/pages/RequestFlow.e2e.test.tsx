@@ -169,7 +169,7 @@ describe('Booking widget request/instant rollout', () => {
     });
     api.book.mockResolvedValue({
       success: true,
-      confirmationNumber: 'HAIP-INSTANT-1',
+      confirmationNumber: 'BAIA-INSTANT-1',
       reservationId: '66666666-6666-4666-8666-666666666666',
       status: 'confirmed',
       currencyCode: 'EUR',
@@ -251,7 +251,7 @@ describe('Booking widget request/instant rollout', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Pay & confirm booking' }));
 
     expect(await screen.findByText('Booking confirmed')).toBeVisible();
-    expect(screen.getByText('HAIP-INSTANT-1')).toBeVisible();
+    expect(screen.getByText('BAIA-INSTANT-1')).toBeVisible();
     expect(screen.getByRole('button', { name: 'Manage this booking' })).toBeVisible();
     await waitFor(() => expect(api.book).toHaveBeenCalledOnce());
     expect(api.book.mock.calls[0]![0]).toMatchObject({

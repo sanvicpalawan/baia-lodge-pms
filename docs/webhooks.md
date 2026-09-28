@@ -1,6 +1,6 @@
 # Webhooks & Events
 
-HAIP emits an event for every significant state change, following the
+BAIA emits an event for every significant state change, following the
 `entity.action` naming convention (`reservation.checked_in`, `folio.settled`,
 `invoice.issued`, ...). External services — channel partners, OTAIP agents, and
 **regional compliance integrations** (government guest registration, tax
@@ -51,9 +51,9 @@ Each matching event is POSTed to your `callbackUrl`:
 ```
 POST <callbackUrl>
 Content-Type: application/json
-X-HAIP-Signature: sha256=<hex HMAC-SHA256 of the raw body, keyed by your secret>
-X-HAIP-Event-Id: <logical event uuid, or delivery row uuid for legacy events>
-X-HAIP-Event-Type: reservation.checked_in
+X-BAIA-Signature: sha256=<hex HMAC-SHA256 of the raw body, keyed by your secret>
+X-BAIA-Event-Id: <logical event uuid, or delivery row uuid for legacy events>
+X-BAIA-Event-Type: reservation.checked_in
 ```
 
 ```json
@@ -105,7 +105,7 @@ the webhook alone grants no data access.
 
 Failed deliveries are retried with exponential backoff: 30s, 2m, 10m, 1h, 6h
 (5 attempts total, ~7h). Deliveries can arrive **more than once** (at-least-
-once semantics) and out of order — deduplicate on `X-HAIP-Event-Id` and treat
+once semantics) and out of order — deduplicate on `X-BAIA-Event-Id` and treat
 handlers as idempotent.
 
 After the final attempt the delivery is marked `failed` and a **critical staff
@@ -129,7 +129,7 @@ recommended safety net for compliance-critical integrations.
 ## Fiscal documents (`invoice.*`)
 
 For jurisdictions that require official tax documents (fiscal receipts,
-e-invoices, tax notes, and similar), HAIP stores a **fiscal document reference**
+e-invoices, tax notes, and similar), BAIA stores a **fiscal document reference**
 on the folio and emits `invoice.*` events. Core contains no regional tax logic —
 issuance is performed by an external integration (see the
 [integrations catalog](./INTEGRATIONS.md) for country packs):
@@ -137,17 +137,17 @@ issuance is performed by an external integration (see the
 1. Staff (or an automation) requests a document:
    `POST /api/v1/folios/:folioId/fiscal-documents`
    `{ "propertyId": "…", "documentType": "fiscal_receipt", "metadata": { … } }`
-   → HAIP emits **`invoice.requested`** (entity: `fiscal_document`).
+   → BAIA emits **`invoice.requested`** (entity: `fiscal_document`).
 2. Your integration receives the event, fetches the folio and charges, and
    issues the document against the government/tax-authority API.
 3. It reports the result back:
    `POST /api/v1/folios/:folioId/fiscal-documents/:documentId/issue`
    `{ "propertyId": "…", "documentNumber": "2026-000123", "documentUrl": "…" }`
-   → HAIP emits **`invoice.issued`** and the official document number is now
+   → BAIA emits **`invoice.issued`** and the official document number is now
    linked to the folio in the PMS.
 4. Voiding/cancelling (either a pending request or an issued document):
    `POST /api/v1/folios/:folioId/fiscal-documents/:documentId/void`
-   → HAIP emits **`invoice.voided`**.
+   → BAIA emits **`invoice.voided`**.
 
 `documentType` is a free-form regional identifier and `metadata` is a
 pass-through JSON object for regional fields (series, verification codes,
@@ -158,7 +158,7 @@ List documents for a folio:
 
 ## Door access (`door.*`)
 
-On check-in and check-out HAIP provisions or revokes room access via the lock
+On check-in and check-out BAIA provisions or revokes room access via the lock
 provider (default: webhook adapter). Integrations subscribe to:
 
 - **`door.access_granted`** — emitted when a stay is checked in (or a PIN is
@@ -187,7 +187,7 @@ guest data on arrival/departure:
 1. Subscribe to `reservation.checked_in` and `reservation.checked_out`.
 2. On each event, fetch the reservation, then the guest profile.
 3. Submit to the government API from your service.
-4. Deduplicate on `X-HAIP-Event-Id`; run a nightly reconciliation sweep via
+4. Deduplicate on `X-BAIA-Event-Id`; run a nightly reconciliation sweep via
    `GET /api/v1/connect/events` to catch anything missed.
 5. Watch for `webhook_delivery_failed` staff notifications (or monitor
    `/subscriptions/:id/deliveries`) so a broken endpoint is noticed quickly.

@@ -1,7 +1,7 @@
 /**
  * Direct booking deep-link contract for metasearch / marketing partners.
  *
- * HAIP's booking engine is the destination; partners pass stay params and the
+ * BAIA's booking engine is the destination; partners pass stay params and the
  * property booking key. No inventory hold is created by the link itself.
  */
 
@@ -21,7 +21,7 @@ export interface BookingDeepLinkParams {
   clickId?: string;
 }
 
-/** Build a guest-facing search/book URL for the HAIP booking app. */
+/** Build a guest-facing search/book URL for the BAIA booking app. */
 export function buildBookingDeepLink(params: BookingDeepLinkParams): string {
   const origin = params.bookingAppOrigin.replace(/\/$/, '');
   const qs = new URLSearchParams();

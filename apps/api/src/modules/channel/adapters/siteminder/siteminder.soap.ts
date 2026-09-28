@@ -133,5 +133,5 @@ export function parseSoapResponse(xmlString: string): {
 }
 
 function generateEchoToken(): string {
-  return `HAIP-SM-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
+  return `BAIA-SM-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
 }

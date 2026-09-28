@@ -125,7 +125,7 @@ export class MollieGateway implements PaymentGateway {
         headers: this.headers(),
         body: JSON.stringify({
           amount: this.amountValue(amount, currency),
-          description: 'HAIP authorization',
+          description: 'BAIA authorization',
           captureMode: 'manual',
           cardToken: token,
         }),

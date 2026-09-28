@@ -1,6 +1,6 @@
 # @telivityhaip/booking
 
-Guest-facing, commission-free **Book Now** widget for HAIP. A hotel embeds this on
+Guest-facing, commission-free **Book Now** widget for BAIA. A hotel embeds this on
 its own website to take direct bookings. Public — authenticates only with a
 **publishable booking key** (`x-booking-key`); there is no login.
 
@@ -16,7 +16,7 @@ The publishable booking key is resolved in priority order:
 1. `?key=` URL query param
 2. `data-booking-key` attribute on the mount element / script
 3. `VITE_BOOKING_KEY` env var
-4. The demo key `pk_live_HAIPDEMO0000000000000000`
+4. The demo key `pk_live_BAIADEMO0000000000000000`
 
 No `propertyId` is ever sent — the API derives it from the key.
 

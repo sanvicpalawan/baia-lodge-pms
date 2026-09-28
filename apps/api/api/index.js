@@ -1,5 +1,5 @@
 /**
- * Vercel serverless entrypoint for the HAIP API.
+ * Vercel serverless entrypoint for the BAIA API.
  *
  * Boots the same NestJS AppModule as src/main.ts (same middleware, prefix, and
  * validation), but instead of listening on a port it hands Vercel the underlying

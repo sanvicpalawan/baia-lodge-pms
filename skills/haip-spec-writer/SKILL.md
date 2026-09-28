@@ -1,9 +1,9 @@
 ---
 name: haip-spec-writer
-description: Use this skill whenever writing or revising a module specification for HAIP. Trigger on "write spec for", "spec out module", "define module", or whenever a phase from HAIP_BUILD_PLAN.md needs detailed specification before going to Claude Code. Every HAIP module must go through this template before build.
+description: Use this skill whenever writing or revising a module specification for BAIA. Trigger on "write spec for", "spec out module", "define module", or whenever a phase from BAIA_BUILD_PLAN.md needs detailed specification before going to Claude Code. Every BAIA module must go through this template before build.
 ---
 
-# HAIP Module Spec Writer
+# BAIA Module Spec Writer
 
 ## When to Use
 - Before any Phase goes to Claude Code
@@ -58,7 +58,7 @@ events_emitted:
     description: [when this fires]
 
 dependencies:
-  - [other HAIP modules this depends on]
+  - [other BAIA modules this depends on]
 
 compliance_requirements:
   - [PCI/GDPR/tax/registration requirements for this module]

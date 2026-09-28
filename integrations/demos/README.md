@@ -1,4 +1,4 @@
-# HAIP integration demos
+# BAIA integration demos
 
 One folder per catalog integration that is **shipped**, **adapter**, or **recipe**. Each demo turns the Integrations toggle **ON** (same as the dashboard button) and exercises the honest demo path (mock/console/docs recipe) without inventing vendor APIs.
 
@@ -76,7 +76,7 @@ Each shipped folder has:
 ## Env overrides
 
 ```bash
-export HAIP_URL=http://localhost:3000
+export BAIA_URL=http://localhost:3000
 export PROPERTY_ID=a0000001-0000-4000-a000-000000000001
 ```
 

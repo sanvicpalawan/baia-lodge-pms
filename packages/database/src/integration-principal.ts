@@ -1,5 +1,5 @@
 /**
- * Link a Keycloak service-account JWT subject to a local HAIP user + role grants.
+ * Link a Keycloak service-account JWT subject to a local BAIA user + role grants.
  * Used by server-to-server integrations that call staff REST routes (@RequirePermissions).
  *
  * Permission keys come from `@telivityhaip/shared/permissions-catalog` — keep

@@ -191,7 +191,7 @@ export class ReservationController {
         roomType: { id: '…', name: 'King' },
         ratePlan: { id: '…', name: 'BAR' },
         room: null,
-        confirmationNumber: 'HAIP-…',
+        confirmationNumber: 'BAIA-…',
       },
     },
   })

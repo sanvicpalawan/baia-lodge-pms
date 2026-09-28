@@ -112,8 +112,8 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     : properties.find((p) => p.id === propertyId);
 
   const brandName = isPortfolioMode
-    ? 'HAIP'
-    : (activeProperty?.staffDisplayName || activeProperty?.name || 'HAIP');
+    ? 'BAIA'
+    : (activeProperty?.staffDisplayName || activeProperty?.name || 'BAIA');
   const brandLogo = !isPortfolioMode ? activeProperty?.staffLogoUrl : null;
   const tagline = isPortfolioMode
     ? t('header.allProperties', { defaultValue: 'All Properties' })

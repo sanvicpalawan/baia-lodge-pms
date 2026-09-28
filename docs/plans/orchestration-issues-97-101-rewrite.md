@@ -1,6 +1,6 @@
 # Rewrite: Issues #97–#101 (orchestration)
 
-**Scope:** HAIP’s **12 specialist agents** + **Revenue Manager (RManager)** + **OTAIP** (Connect / lodging agents).  
+**Scope:** BAIA’s **12 specialist agents** + **Revenue Manager (RManager)** + **OTAIP** (Connect / lodging agents).  
 **Out of scope:** Remy / LLM premium addon — do not mention or depend on it here.
 
 Paste each section into the corresponding GitHub issue (title + body). Close nothing until the AC is met.
@@ -13,7 +13,7 @@ Paste each section into the corresponding GitHub issue (title + body). Close not
 |-------|------|
 | **12 specialists** | `demand_forecast`, `pricing`, `overbooking`, `channel_mix`, `group_pickup`, `night_audit`, `housekeeping`, `cancellation`, `guest_comms`, `review_response`, `ar_collections`, `deposit_risk` |
 | **RManager** | Meta-agent `revenue_manager` — runs revenue levers in dependency order and reconciles into one strategy (already shipped; deepen, don’t replace) |
-| **OTAIP** | External agent orchestration (air + Domain 4 lodging). Talks to HAIP only via **Connect API** (`/api/v1/connect/*`). Option B: PMS stays standalone |
+| **OTAIP** | External agent orchestration (air + Domain 4 lodging). Talks to BAIA only via **Connect API** (`/api/v1/connect/*`). Option B: PMS stays standalone |
 
 Do **not** build a second generic “pipeline engine” that duplicates OTAIP’s orchestrator or bypasses RManager.
 
@@ -21,7 +21,7 @@ Do **not** build a second generic “pipeline engine” that duplicates OTAIP’
 
 ## Issue #97
 
-**Title:** Formalize the HAIP agent dependency graph (12 agents + RManager)
+**Title:** Formalize the BAIA agent dependency graph (12 agents + RManager)
 
 **Body:**
 
@@ -30,12 +30,12 @@ Do **not** build a second generic “pipeline engine” that duplicates OTAIP’
 
 Make the **existing** agent graph explicit and enforceable — not a greenfield BRIEF-020 pipeline engine.
 
-HAIP already has:
+BAIA already has:
 - 12 specialist agents (deterministic / calibrated)
 - **RManager** as the in-product revenue orchestrator (demand → pricing / overbooking / channel_mix / group_pickup → one strategy)
 - **OTAIP** for external multi-agent pipelines over Connect
 
-This issue is about documenting + encoding that graph in HAIP so schedules, context, API, and tests all share one model.
+This issue is about documenting + encoding that graph in BAIA so schedules, context, API, and tests all share one model.
 
 ## In scope
 
@@ -44,7 +44,7 @@ This issue is about documenting + encoding that graph in HAIP so schedules, cont
   - **Ops subgraph:** `night_audit`, `housekeeping`, `cancellation` (and how they relate to events / daily ops)
   - **Guest / commercial subgraph:** `guest_comms`, `review_response`, `ar_collections`, `deposit_risk`
 - Encode the graph in code (typed registry / constants next to `VALID_AGENT_TYPES`) so RManager and future callers don’t hardcode ad-hoc lists in three places
-- Clarify boundary: **OTAIP orchestrates OTAIP agents**; HAIP orchestrates HAIP agents (RManager + schedules). No embedded OTAIP runtime inside HAIP
+- Clarify boundary: **OTAIP orchestrates OTAIP agents**; BAIA orchestrates BAIA agents (RManager + schedules). No embedded OTAIP runtime inside BAIA
 
 ## Out of scope
 
@@ -129,7 +129,7 @@ Expose the **12 + RManager** graph and recent orchestration runs to operators �
 
 ## OTAIP
 
-- Optional read-only note/link: lodging traffic enters via Connect — do not build an OTAIP pipeline visualizer inside HAIP
+- Optional read-only note/link: lodging traffic enters via Connect — do not build an OTAIP pipeline visualizer inside BAIA
 
 ## Out of scope
 
@@ -155,11 +155,11 @@ Expose the **12 + RManager** graph and recent orchestration runs to operators �
 ```markdown
 ## Goal
 
-Standardize how HAIP agents pass context so RManager (and any sequential specialist runs) share **upstream results** without ad-hoc coupling — and define what OTAIP may pass in via Connect.
+Standardize how BAIA agents pass context so RManager (and any sequential specialist runs) share **upstream results** without ad-hoc coupling — and define what OTAIP may pass in via Connect.
 
 ## In scope
 
-### HAIP internal
+### BAIA internal
 
 - Extend `AgentContext` with optional structured fields, e.g.:
   - `upstreamResults?: Record<agentType, unknown>` (or typed slices)
@@ -171,20 +171,20 @@ Standardize how HAIP agents pass context so RManager (and any sequential special
 ### OTAIP boundary
 
 - Connect API remains credential-scoped; no propertyId confused-deputy paths
-- Document which Connect operations OTAIP lodging agents use; HAIP does not import OTAIP’s orchestrator types
+- Document which Connect operations OTAIP lodging agents use; BAIA does not import OTAIP’s orchestrator types
 - If cross-system correlation IDs are needed, add a single optional request header/field — keep it minimal
 
 ## Out of scope
 
 - Remy / LLM prompts
 - Replacing specialist `analyze()` contracts wholesale
-- Embedding OTAIP pipeline validator in HAIP
+- Embedding OTAIP pipeline validator in BAIA
 
 ## Acceptance
 
 - [ ] `AgentContext` (or adjacent DTO) supports upstream results with types/tests
 - [ ] RManager uses the shared shape (migrate off one-off signal bags where practical)
-- [ ] Short boundary note: HAIP graph vs OTAIP Connect
+- [ ] Short boundary note: BAIA graph vs OTAIP Connect
 ```
 
 ---
@@ -230,5 +230,5 @@ Harden orchestration of the **12 specialists + RManager** with tests and operato
 
 ## Suggested labels / epic note
 
-Treat as epic **“HAIP agent orchestration (12 + RManager + OTAIP boundary)”**.  
+Treat as epic **“BAIA agent orchestration (12 + RManager + OTAIP boundary)”**.  
 Supersedes the old BRIEF-020 “generic pipeline engine” wording on these five issues.

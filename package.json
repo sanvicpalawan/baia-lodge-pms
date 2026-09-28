@@ -1,7 +1,7 @@
 {
-  "name": "haip",
+  "name": "baia-lodge-pms",
   "version": "0.1.0",
-  "description": "HAIP (Hotel AI Platform) — Open-source, API-first hotel PMS",
+  "description": "BAIA Lodge PMS (Palawan Collective) — Open-source, API-first hotel PMS",
   "private": true,
   "license": "Apache-2.0",
   "engines": {

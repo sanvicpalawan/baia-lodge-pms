@@ -236,9 +236,9 @@ export class WebhookDeliveryService implements OnModuleInit, OnModuleDestroy {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-HAIP-Signature': signature,
-            'X-HAIP-Event-Id': delivery.logicalEventId ?? delivery.id,
-            'X-HAIP-Event-Type': delivery.eventType,
+            'X-BAIA-Signature': signature,
+            'X-BAIA-Event-Id': delivery.logicalEventId ?? delivery.id,
+            'X-BAIA-Event-Type': delivery.eventType,
           },
           body,
           // The pre-flight assertSafeOutboundUrl only validates the FIRST URL.

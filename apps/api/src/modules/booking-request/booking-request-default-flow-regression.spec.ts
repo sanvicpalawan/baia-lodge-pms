@@ -162,7 +162,7 @@ describeDatabase('Booking Request default-flow release gate', () => {
   let optedIn: Fixture;
 
   beforeAll(async () => {
-    vi.stubEnv('HAIP_BOOKING_REQUESTS', 'true');
+    vi.stubEnv('BAIA_BOOKING_REQUESTS', 'true');
     vi.stubEnv('AUTH_ENABLED', 'false');
     vi.stubEnv('NODE_ENV', 'test');
     vi.stubEnv('PAYMENT_GATEWAY', 'mock');

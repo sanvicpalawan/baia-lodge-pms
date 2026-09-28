@@ -1,6 +1,6 @@
 # Scheduled operations (external cron)
 
-HAIP does not run in-process cron jobs. Use an external scheduler (system cron, Kubernetes CronJob, GitHub Actions, etc.) to call these authenticated API endpoints on a schedule.
+BAIA does not run in-process cron jobs. Use an external scheduler (system cron, Kubernetes CronJob, GitHub Actions, etc.) to call these authenticated API endpoints on a schedule.
 
 All requests require a valid Keycloak JWT with the appropriate role unless noted.
 
@@ -33,7 +33,7 @@ Role: `admin`
 
 ## AI agent runs (orchestration)
 
-HAIP does not run in-process agent cron. Use `scripts/cron/agent-runs.sh <agentType>` (or call the API directly).
+BAIA does not run in-process agent cron. Use `scripts/cron/agent-runs.sh <agentType>` (or call the API directly).
 
 ```
 POST /agents/<propertyId>/<agentType>/run?triggeredBy=schedule

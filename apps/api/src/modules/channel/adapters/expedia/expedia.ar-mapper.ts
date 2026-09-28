@@ -5,7 +5,7 @@ import type {
 } from '../../channel-adapter.interface';
 
 /**
- * Map HAIP ARI → Expedia EQC AR (AvailRateUpdateRQ) body.
+ * Map BAIA ARI → Expedia EQC AR (AvailRateUpdateRQ) body.
  *
  * VERIFIED: root `<AvailRateUpdateRQ>` carries the AR namespace; auth is an
  * in-body `<Authentication>`; updates are keyed by Expedia room-type & rate-plan

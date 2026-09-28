@@ -45,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <main className={`mx-auto px-4 py-6 ${isRequestFlow ? 'max-w-5xl' : 'max-w-3xl'}`}>{children}</main>
       <footer className={`mx-auto px-4 py-6 text-center text-xs text-gray-400 ${isRequestFlow ? 'max-w-5xl' : 'max-w-3xl'}`}>
-        Commission-free direct booking · Powered by HAIP
+        Commission-free direct booking · Powered by BAIA
       </footer>
     </div>
   );

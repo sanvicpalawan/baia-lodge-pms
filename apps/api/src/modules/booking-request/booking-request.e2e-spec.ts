@@ -100,7 +100,7 @@ describeDatabase('Booking Request complete vertical slice', () => {
   let db: ReturnType<typeof drizzle>;
 
   beforeAll(async () => {
-    vi.stubEnv('HAIP_BOOKING_REQUESTS', 'true');
+    vi.stubEnv('BAIA_BOOKING_REQUESTS', 'true');
     vi.stubEnv('AUTH_ENABLED', 'false');
     vi.stubEnv('NODE_ENV', 'test');
     vi.stubEnv('PAYMENT_GATEWAY', 'mock');
@@ -724,7 +724,7 @@ describeDatabase('Booking Request complete vertical slice', () => {
           .resolves.toBe('delivered');
       }
       const outboundEventIds = fetchMock.mock.calls.map(([, init]) =>
-        new Headers(init?.headers).get('X-HAIP-Event-Id'));
+        new Headers(init?.headers).get('X-BAIA-Event-Id'));
       expect(outboundEventIds.sort()).toEqual(
         queuedDeliveries.map((delivery) => delivery.logicalEventId).sort(),
       );

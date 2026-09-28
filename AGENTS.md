@@ -2,7 +2,7 @@
 
 Project domain rules and code standards live in `CLAUDE.md`. Standard dev/build/test
 commands live in `README.md` (see "Local development" and "Run tests"). This file
-captures only the non-obvious operating notes for running HAIP inside the Cursor
+captures only the non-obvious operating notes for running BAIA inside the Cursor
 Cloud VM.
 
 - Keep discussions out of PRs and commits

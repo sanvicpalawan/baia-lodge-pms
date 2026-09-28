@@ -8,7 +8,7 @@
  * payments financial-target invariant, amendment/charge reversal provenance):
  *   - `booking_engine_config.booking_mode` / `payment_method_collection` /
  *     `form_questions` — core's `BookingEngineConfigService.updateConfig`
- *     rejects `bookingMode='request'` unless `HAIP_BOOKING_REQUESTS=true`,
+ *     rejects `bookingMode='request'` unless `BAIA_BOOKING_REQUESTS=true`,
  *     even when the optional package is not installed at all.
  *   - `payments.booking_request_id` / `payments.idempotency_key`
  *   - `reservations.accepted_pricing_snapshot`

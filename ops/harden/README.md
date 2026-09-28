@@ -1,6 +1,6 @@
-# HAIP operator harden pack
+# BAIA operator harden pack
 
-Playbooks and a small CLI so operators can harden a **self-hosted HAIP**
+Playbooks and a small CLI so operators can harden a **self-hosted BAIA**
 deployment (Keycloak + docker compose) before go-live and against a live URL.
 
 ## What this is
@@ -17,7 +17,7 @@ deployment (Keycloak + docker compose) before go-live and against a live URL.
 
 ### Pre-go-live (local / compose)
 
-From the HAIP repo root:
+From the BAIA repo root:
 
 ```bash
 # 1. Configure production env
@@ -37,7 +37,7 @@ Then walk [`SURFACE_SMOKE.md`](./SURFACE_SMOKE.md) and a few [`vignettes/`](./vi
 
 ```bash
 cp ops/harden/.env.harden.example .env.harden
-# Fill HAIP_API_BASE, TOKEN_A, TOKEN_B, PROPERTY_A, PROPERTY_B
+# Fill BAIA_API_BASE, TOKEN_A, TOKEN_B, PROPERTY_A, PROPERTY_B
 
 set -a && source .env.harden && set +a
 pnpm harden:live
@@ -53,7 +53,7 @@ API client (`haip-api`). Claims the API expects:
 | Claim | Meaning |
 |-------|---------|
 | `property_ids` | Array of property UUIDs this user may access |
-| `roles` | HAIP roles (e.g. `admin`, `front_desk`, `readonly`) |
+| `roles` | BAIA roles (e.g. `admin`, `front_desk`, `readonly`) |
 
 **User A** should have `property_ids=[PROPERTY_A]` only.  
 **User B** should have `property_ids=[PROPERTY_B]` only.
@@ -62,9 +62,9 @@ How you mint tokens (password grant, client credentials + user impersonation,
 or your IdP’s token endpoint) is up to your deployment — the CLI only needs the
 bearer strings.
 
-`HAIP_API_BASE` is the API origin **including** `/api` if your reverse proxy
+`BAIA_API_BASE` is the API origin **including** `/api` if your reverse proxy
 serves the API under `/api` (compose default: `http://localhost:3000/api`).
-Probes call `{HAIP_API_BASE}/v1/...`.
+Probes call `{BAIA_API_BASE}/v1/...`.
 
 ## Modes
 

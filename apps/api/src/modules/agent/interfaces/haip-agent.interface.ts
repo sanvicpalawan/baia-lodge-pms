@@ -1,5 +1,5 @@
 /**
- * Base interface for all HAIP AI agents.
+ * Base interface for all BAIA AI agents.
  *
  * Each agent follows the same lifecycle:
  *   analyze() → recommend() → [approve] → execute() → recordOutcome()

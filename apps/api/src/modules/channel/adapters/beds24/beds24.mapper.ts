@@ -15,7 +15,7 @@ function formatModifiedSince(since?: Date): string | undefined {
   return `${since.getFullYear()}${pad(since.getMonth() + 1)}${pad(since.getDate())} ${pad(since.getHours())}:${pad(since.getMinutes())}:${pad(since.getSeconds())}`;
 }
 
-/** Group HAIP availability by Beds24 roomId → dates map for setRoomDates. */
+/** Group BAIA availability by Beds24 roomId → dates map for setRoomDates. */
 export function mapAvailabilityToBeds24RoomDates(
   items: AvailabilityPushParams['items'],
 ): Map<string, Record<string, Record<string, string>>> {

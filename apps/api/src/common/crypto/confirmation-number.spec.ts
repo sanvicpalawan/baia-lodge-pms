@@ -8,6 +8,6 @@ describe('generateConfirmationNumber', () => {
     const confirmation = generateConfirmationNumber(entropy);
 
     expect(entropy).toHaveBeenCalledWith(16);
-    expect(confirmation).toMatch(/^HAIP-[0-9A-HJKMNP-TV-Z]{32}$/);
+    expect(confirmation).toMatch(/^BAIA-[0-9A-HJKMNP-TV-Z]{32}$/);
   });
 });

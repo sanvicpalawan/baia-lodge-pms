@@ -2,7 +2,7 @@
   "name": "@telivityhaip/haip-connect-gpt",
   "version": "0.0.1",
   "private": true,
-  "description": "ChatGPT Custom GPT gateway for HAIP — proxies the HAIP Connect API, serves a ChatGPT-importable OpenAPI 3.1 spec, and logs every tool call (PII-scrubbed) to Supabase.",
+  "description": "ChatGPT Custom GPT gateway for BAIA — proxies the BAIA Connect API, serves a ChatGPT-importable OpenAPI 3.1 spec, and logs every tool call (PII-scrubbed) to Supabase.",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"

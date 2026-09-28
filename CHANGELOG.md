@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to HAIP are documented here. This project adheres to
+All notable changes to BAIA are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
@@ -75,7 +75,7 @@ Beyond housekeeping desk wiring ([#185](https://github.com/telivityai/haip/pull/
 - **SMS on reservation messages** — `ComposeMessageDto.channel` (`email` | `sms`, default email);
   SMS path uses `NotificationService.sendSms` with the same GDPR marketing opt-out as email.
 - **Dashboard** — channel selector on reservation guest-message compose.
-- **Docs** — README Slice 6 depth vs polish (#182); HAIP_BUILD_PLAN notes remaining Slice 6 items.
+- **Docs** — README Slice 6 depth vs polish (#182); BAIA_BUILD_PLAN notes remaining Slice 6 items.
 
 
 ### Added — Devices (door lock polish)
@@ -101,7 +101,7 @@ Beyond housekeeping desk wiring ([#185](https://github.com/telivityai/haip/pull/
   connection detail via PATCH `/channels/connections/:id?propertyId=`.
 - **Content-push errors** — toast surfaces adapter errors returned by the API
   (e.g. SiteMinder pmsXchange unsupported).
-- **Docs** — README shipped-slices row #12, HAIP_BUILD_PLAN, i18n (en + pt-BR).
+- **Docs** — README shipped-slices row #12, BAIA_BUILD_PLAN, i18n (en + pt-BR).
 
 
 ### Added — Groups depth (slice 9)
@@ -226,7 +226,7 @@ Beyond housekeeping desk wiring ([#185](https://github.com/telivityai/haip/pull/
 - **Staff dashboard white-label** — property fields for display name, logo, primary/accent
   colors (separate from guest booking-engine branding); applied in Sidebar / CSS vars.
 - **Contextual help** — route help panel (`GET /v1/help`) plus optional grounded
-  HAIP AI explain (`POST /v1/help/explain`).
+  BAIA AI explain (`POST /v1/help/explain`).
 - **Report favorites** — `users.preferences.reportFavorites` via `GET/PATCH /v1/admin/me/preferences`.
 - **KPI warn thresholds** — `properties.settings.kpiThresholds` tint Dashboard KPI cards.
 
@@ -315,7 +315,7 @@ Beyond housekeeping desk wiring ([#185](https://github.com/telivityai/haip/pull/
 ### Added — AI Intelligence Layer (accounting)
 
 AI on top of the new accounting layer — a differentiator with no equivalent in
-the baseline feature set. HAIP now ships **10 built-in agents** (was 9).
+the baseline feature set. BAIA now ships **10 built-in agents** (was 9).
 
 - **A/R Collections Prioritization agent** (new agent type `ar_collections`) —
   ranks open Accounts Receivable ledgers by collection priority (balance × days
@@ -330,7 +330,7 @@ the baseline feature set. HAIP now ships **10 built-in agents** (was 9).
 
 ### Added — Accounting & Cashiering
 
-A new accounting layer that makes HAIP's financials correct-by-construction,
+A new accounting layer that makes BAIA's financials correct-by-construction,
 not just functional.
 
 - **Deposit Ledger** — advance deposits are now tracked as a **liability**, not

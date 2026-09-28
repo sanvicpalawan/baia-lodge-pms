@@ -16,7 +16,7 @@ export class ListIntegrationsDto {
 
   @ApiPropertyOptional({
     enum: INTEGRATION_CATALOG_STATUSES,
-    description: 'Public availability of the integration in HAIP',
+    description: 'Public availability of the integration in BAIA',
   })
   @IsOptional()
   @IsIn(INTEGRATION_CATALOG_STATUSES)

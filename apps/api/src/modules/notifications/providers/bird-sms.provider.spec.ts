@@ -20,7 +20,7 @@ describe('BirdSmsProvider', () => {
 
   it('sends via MessageBird REST when configured', async () => {
     process.env['BIRD_ACCESS_KEY'] = 'test-key';
-    process.env['BIRD_ORIGINATOR'] = 'HAIP';
+    process.env['BIRD_ORIGINATOR'] = 'BAIA';
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => ({ id: 'msg-bird-1' }),

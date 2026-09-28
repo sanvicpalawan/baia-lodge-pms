@@ -1,6 +1,6 @@
 /**
  * HaipConnectAdapter — the equivalent of OTAIP/Ligare's duffel-connect-adapter,
- * but the "domain engine" here is HAIP's already-built Connect API. Each method is
+ * but the "domain engine" here is BAIA's already-built Connect API. Each method is
  * a single typed HTTP call to `${baseUrl}/api/v1/connect/*`, with the gateway's
  * `x-api-key` injected server-side (the GPT never sees it).
  *
@@ -23,12 +23,12 @@ export class UpstreamError extends Error {
     public readonly status: number,
     public readonly body: unknown,
   ) {
-    super(`HAIP Connect API responded ${status}`);
+    super(`BAIA Connect API responded ${status}`);
     this.name = 'UpstreamError';
   }
 }
 
-// --- Request shapes (mirror HAIP's Connect DTOs; no invented fields) ---
+// --- Request shapes (mirror BAIA's Connect DTOs; no invented fields) ---
 
 export interface SearchInput {
   city?: string;
@@ -160,7 +160,7 @@ export class HaipConnectAdapter {
     );
   }
 
-  /** Liveness probe against the upstream HAIP API. */
+  /** Liveness probe against the upstream BAIA API. */
   async upstreamHealthy(): Promise<boolean> {
     try {
       const res = await fetch(`${this.baseUrl}/api/v1/health`);

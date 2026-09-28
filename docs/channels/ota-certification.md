@@ -1,6 +1,6 @@
 # OTA adapter certification / activation
 
-HAIP ships adapters for:
+BAIA ships adapters for:
 
 | Adapter | Module path |
 |---------|-------------|

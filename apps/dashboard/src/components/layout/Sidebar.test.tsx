@@ -73,10 +73,10 @@ describe('Sidebar', () => {
     );
   });
 
-  it('shows HAIP branding', () => {
+  it('shows BAIA branding', () => {
     renderWithProviders(<Sidebar mobileOpen={false} onClose={() => {}} />);
-    expect(screen.getByText('HAIP')).toBeInTheDocument();
-    expect(screen.getByText('Hotel AI Platform')).toBeInTheDocument();
+    expect(screen.getByText('BAIA')).toBeInTheDocument();
+    expect(screen.getByText('BAIA Lodge PMS')).toBeInTheDocument();
   });
 
   it('has hidden sidebar by default on mobile (translate-x-full)', () => {

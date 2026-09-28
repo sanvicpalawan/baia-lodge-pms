@@ -18,7 +18,7 @@ For OTA-style search/book and webhook subscriptions, prefer **[Connect API key](
 2. **`aud` claim** — audience mapper so `aud` includes `haip-api` (or your `KEYCLOAK_CLIENT_ID`).
 3. **`azp` allow-list** — add your client id to API `KEYCLOAK_ALLOWED_AZP` ([#317](https://github.com/TelivityAI/haip/pull/317)).
 4. **`property_ids` claim** — hardcoded-claim mapper listing property UUID(s) the integration may access.
-5. **Local HAIP user** — `users.keycloak_sub` + a role with the right permission keys (`@RequirePermissions` routes).
+5. **Local BAIA user** — `users.keycloak_sub` + a role with the right permission keys (`@RequirePermissions` routes).
 
 Steps 1–4 are Keycloak; step 5 is `pnpm integration:link` (replaces operator SQL).
 

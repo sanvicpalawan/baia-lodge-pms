@@ -1,6 +1,6 @@
 # Redsys payment adapter
 
-HAIP card flows (`POST /api/v1/payments/authorize`, capture, void, refund) use a pluggable **PaymentGateway**. This recipe covers **Redsys** (Spanish bank TPV Virtual) for direct-booking deposits and front-desk folio pre-auth.
+BAIA card flows (`POST /api/v1/payments/authorize`, capture, void, refund) use a pluggable **PaymentGateway**. This recipe covers **Redsys** (Spanish bank TPV Virtual) for direct-booking deposits and front-desk folio pre-auth.
 
 Stripe remains the default when `PAYMENT_GATEWAY` is unset and `STRIPE_MODE` is `test` or `live`. See also [Adyen / Mollie / Square / Braintree](./payments-adyen-mollie-square-braintree.md).
 
@@ -32,7 +32,7 @@ Each Spanish hotel typically has its own FUC. Store credentials on the property 
 
 Dashboard → Integrations → Redsys exposes this form. Property config overrides process env at authorize/capture/void/refund time.
 
-Signing keys are stored as AES-256-GCM credential blobs using HAIP's existing protected-credential key ring (`MIGRATION_CREDENTIAL_ENCRYPTION_KEY`, `MIGRATION_CREDENTIAL_ENCRYPTION_KEY_ID`, and optional `MIGRATION_CREDENTIAL_ENCRYPTION_KEYS`). Provision the existing 32-byte encryption key through deployment secrets before saving credentials; never place it in integration config. Retain old key IDs in the rotation map until their stored blobs have been rotated. Missing keys or invalid ciphertext fail closed. Only the payment credential resolver decrypts a signing key.
+Signing keys are stored as AES-256-GCM credential blobs using BAIA's existing protected-credential key ring (`MIGRATION_CREDENTIAL_ENCRYPTION_KEY`, `MIGRATION_CREDENTIAL_ENCRYPTION_KEY_ID`, and optional `MIGRATION_CREDENTIAL_ENCRYPTION_KEYS`). Provision the existing 32-byte encryption key through deployment secrets before saving credentials; never place it in integration config. Retain old key IDs in the rotation map until their stored blobs have been rotated. Missing keys or invalid ciphertext fail closed. Only the payment credential resolver decrypts a signing key.
 
 Input accepts `secretKey`, `secret_key`, or `clave`; all are canonicalized into `secretKeyEncrypted` at rest. Public list/get/save responses strip every spelling and the encrypted blob, returning only a fixed `secretKeyMasked` configured indicator. A blank or omitted secret preserves the existing credential; callers cannot submit ciphertext.
 
@@ -53,9 +53,9 @@ For read compatibility, the payment resolver also performs the same scoped migra
 ### Authorize (deposit / folio hold)
 
 1. Client calls `POST /api/v1/payments/authorize` with `gatewayProvider: "redsys"`, `gatewayPaymentToken: "redsys_redirect"`, and `redirectUrlOk` / `redirectUrlKo`.
-2. HAIP creates a **pending** payment, signs `Ds_MerchantParameters` (HMAC_SHA512_V2), and returns `nextAction` (POST form fields + Redsys `realizarPago` URL).
+2. BAIA creates a **pending** payment, signs `Ds_MerchantParameters` (HMAC_SHA512_V2), and returns `nextAction` (POST form fields + Redsys `realizarPago` URL).
 3. Client auto-submits the form; guest completes 3DS on Redsys.
-4. Redsys POSTs the signed notification to MerchantURL. HAIP verifies the signature and moves the payment to **authorized**.
+4. Redsys POSTs the signed notification to MerchantURL. BAIA verifies the signature and moves the payment to **authorized**.
 5. Browser returns to URLOK / URLKO — those URLs alone are **not** trusted for fulfillment.
 
 Transaction type: **1** (preauthorization). The terminal must allow preauth.

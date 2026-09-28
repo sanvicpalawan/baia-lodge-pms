@@ -19,7 +19,7 @@ export type BookingRequestStripePaymentRow = {
 
 /**
  * Optional handler registered by @telivityhaip/booking-requests when
- * HAIP_BOOKING_REQUESTS=true. Core Stripe webhook delegates here when
+ * BAIA_BOOKING_REQUESTS=true. Core Stripe webhook delegates here when
  * payment.bookingRequestId is set.
  */
 export interface BookingRequestStripeHandler {

@@ -2,7 +2,7 @@
  * Fastify app: ChatGPT action endpoints + /openapi.json + /health + /privacy + landing.
  *
  * Every action route is wrapped by `action()`, which times the call, scrubs the
- * request and response, and logs the tool call to Supabase. The upstream HAIP
+ * request and response, and logs the tool call to Supabase. The upstream BAIA
  * `x-api-key` is injected by the adapter and never appears in the spec or here.
  */
 
@@ -27,7 +27,7 @@ export interface AppOptions {
   /**
    * Credential the caller (the ChatGPT Action) must present to reach the action
    * routes — sent as `Authorization: Bearer <key>` or `x-api-key`. The gateway
-   * holds HAIP's privileged upstream Connect key, so without this anyone on the
+   * holds BAIA's privileged upstream Connect key, so without this anyone on the
    * internet who finds the URL can drive the Connect API. Configure via GATEWAY_API_KEY.
    */
   gatewayApiKey?: string;
@@ -63,7 +63,7 @@ export function buildApp(opts: AppOptions): FastifyInstance {
   // OPEN by default — the public demo shows hotels how to connect their own GPT
   // with zero setup. A real deployment locks it down simply by setting
   // GATEWAY_API_KEY: when a key is configured it is REQUIRED (Authorization:
-  // Bearer <key> or x-api-key), validated timing-safe. The gateway holds HAIP's
+  // Bearer <key> or x-api-key), validated timing-safe. The gateway holds BAIA's
   // upstream Connect key, so anyone enabling this in production should set a key.
   app.addHook('onRequest', async (req, reply) => {
     if (!opts.gatewayApiKey) return; // no key configured → open (demo posture)
@@ -138,7 +138,7 @@ export function buildApp(opts: AppOptions): FastifyInstance {
 
 /**
  * Wraps an action handler with timing, PII-scrubbed logging, and error mapping.
- * Upstream (HAIP) errors are forwarded with their original status + body.
+ * Upstream (BAIA) errors are forwarded with their original status + body.
  */
 function action(
   tool: string,

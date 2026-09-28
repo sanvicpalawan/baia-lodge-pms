@@ -393,9 +393,9 @@ export class StripeWebhookController {
   }
 
   /**
-   * Correlate a PaymentIntent to a HAIP payment row. Lookup by gateway id first
+   * Correlate a PaymentIntent to a BAIA payment row. Lookup by gateway id first
    * so legacy instant-booking intents without haip_* metadata still reconcile;
-   * only unmatched intents with no HAIP metadata are treated as external noise.
+   * only unmatched intents with no BAIA metadata are treated as external noise.
    */
   private async resolvePaymentForIntent(pi: Stripe.PaymentIntent) {
     const payment = await this.findPaymentByGatewayTransactionId(pi.id);

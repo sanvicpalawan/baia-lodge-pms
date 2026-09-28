@@ -52,7 +52,7 @@ export function ManageBooking() {
           <input
             id="cn"
             className={inputClass}
-            placeholder="HAIP-XXXXXXXX"
+            placeholder="BAIA-XXXXXXXX"
             value={confirmationNumber}
             onChange={(e) => setConfirmationNumber(e.target.value)}
           />

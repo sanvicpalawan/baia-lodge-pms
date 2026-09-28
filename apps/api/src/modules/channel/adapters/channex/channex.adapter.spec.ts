@@ -173,7 +173,7 @@ describe('ChannexAdapter', () => {
       channelConnectionId: 'c1',
       externalConfirmation: 'bk-1',
       externalRevisionId: 'rev-99',
-      pmsConfirmationNumber: 'HAIP-1',
+      pmsConfirmationNumber: 'BAIA-1',
     });
 
     expect(result.success).toBe(true);

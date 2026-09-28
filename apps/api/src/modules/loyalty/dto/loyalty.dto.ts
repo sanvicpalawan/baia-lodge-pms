@@ -15,7 +15,7 @@ export class UpsertLoyaltyProgramDto {
   @IsUUID()
   organizationId!: string;
 
-  @ApiProperty({ example: 'HAIP Rewards' })
+  @ApiProperty({ example: 'BAIA Rewards' })
   @IsString()
   @IsNotEmpty()
   @MaxLength(120)

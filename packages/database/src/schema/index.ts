@@ -1,7 +1,7 @@
 /**
- * HAIP Database Schema — All core entities.
+ * BAIA Database Schema — All core entities.
  *
- * Domain knowledge source: kb/HAIP_KNOWLEDGE_BASE.md
+ * Domain knowledge source: kb/BAIA_KNOWLEDGE_BASE.md
  * DO NOT INVENT HOTEL DOMAIN LOGIC.
  */
 

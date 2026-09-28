@@ -4,19 +4,19 @@ Many short-term rental and calendar workflows use **iCalendar (RFC 5545)** feeds
 
 ## Current status
 
-HAIP’s **native iCal export/import module is in development**. This document describes the intended integration shape so you can plan automations; it does **not** describe a live `/api/v1/...` iCal endpoint yet.
+BAIA’s **native iCal export/import module is in development**. This document describes the intended integration shape so you can plan automations; it does **not** describe a live `/api/v1/...` iCal endpoint yet.
 
 Check your deployment’s OpenAPI at `/docs` and release notes for when iCal routes ship.
 
 ## Why iCal
 
 - **Open standard** — one HTTPS URL can be subscribed by multiple calendar clients.
-- **STR hand-off** — some hosts sync a master calendar URL into OTAs that support iCal import (policies vary by channel; use HAIP’s channel integrations where certified API sync exists — see **[channels docs](../channels/)**).
+- **STR hand-off** — some hosts sync a master calendar URL into OTAs that support iCal import (policies vary by channel; use BAIA’s channel integrations where certified API sync exists — see **[channels docs](../channels/)**).
 - **Staff visibility** — Google Calendar or Outlook can show house-level blocks alongside personal calendars.
 
 ## Target design (when available)
 
-Typical HAIP iCal support would include:
+Typical BAIA iCal support would include:
 
 | Direction | Purpose |
 |-----------|---------|

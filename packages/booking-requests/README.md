@@ -1,16 +1,16 @@
 # @telivityhaip/booking-requests
 
-Optional request-first direct booking for HAIP (STR / coliving workflows).
+Optional request-first direct booking for BAIA (STR / coliving workflows).
 
 ## Enable
 
 1. Run core migrations: `pnpm db:migrate`
 2. Run booking-requests migrations: `pnpm db:migrate:booking-requests`
-3. Set `HAIP_BOOKING_REQUESTS=true` in `apps/api/.env` (and `VITE_HAIP_BOOKING_REQUESTS=true`
+3. Set `BAIA_BOOKING_REQUESTS=true` in `apps/api/.env` (and `VITE_BAIA_BOOKING_REQUESTS=true`
    at Docker build time for the dashboard/booking UIs — see `apps/api/Dockerfile`)
 4. Set property `bookingMode=request` in booking engine admin settings
 
-When disabled (default), core HAIP instant booking is unchanged, and none of this
+When disabled (default), core BAIA instant booking is unchanged, and none of this
 package's tables/migrations are touched.
 
 ## Migrations
@@ -40,7 +40,7 @@ credential/scope/throttle checks).
 `apps/api/src/booking-requests.bootstrap.ts` is the only place core wires itself to
 this package: it binds every port to the concrete core singleton that satisfies it
 (mostly `{ useExisting: CoreService }`) inside `BookingRequestModule.forRoot(...)`,
-and only does so when `HAIP_BOOKING_REQUESTS=true`. `apps/api` itself keeps only:
+and only does so when `BAIA_BOOKING_REQUESTS=true`. `apps/api` itself keeps only:
 
 - The bootstrap wiring above, plus the guard classes it already owned
   (`BookingKeyGuard`, `BookingEngineScopeGuard`, `BookingThrottleGuard`) — these are

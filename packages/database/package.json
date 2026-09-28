@@ -1,7 +1,7 @@
 {
   "name": "@telivityhaip/database",
   "version": "0.0.1",
-  "description": "HAIP database schema and migrations (Drizzle ORM + PostgreSQL)",
+  "description": "BAIA database schema and migrations (Drizzle ORM + PostgreSQL)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

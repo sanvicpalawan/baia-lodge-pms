@@ -1,7 +1,7 @@
 /**
  * Door-lock / access-control provider abstraction.
  *
- * HAIP ships the interface + a webhook reference adapter. A self-hoster points
+ * BAIA ships the interface + a webhook reference adapter. A self-hoster points
  * the webhook at their lock vendor (Salto, Assa Abloy, Dormakaba, …) or swaps in
  * a vendor-specific adapter. The PMS never embeds vendor SDKs.
  */
