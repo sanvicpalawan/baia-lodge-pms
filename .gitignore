@@ -61,3 +61,6 @@ model-build/
 *.safetensors
 training-data/
 *.dataset.jsonl
+
+.env.vercel
+.env.neon
